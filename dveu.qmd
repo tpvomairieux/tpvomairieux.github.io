@@ -1,0 +1,58 @@
+---
+title: "Eurovision Song Contest"
+description: |
+  Analysis of Eurovision from TidyTuesday
+author: Phu Vo
+date: September 23, 2025
+format: html
+---
+
+## Introduction
+
+
+## Code and Graph
+
+```{r}
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+```{r}
+#| include: false
+
+# TidyTuesday Eurovision Dataset (week 05-17-2022).
+
+euro <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2022/2022-05-17/eurovision.csv')
+
+```
+
+```{r}
+#| echo: true
+
+# Top 10 countries by cumulative total points since 2000
+top_countries <- euro |>
+  filter(year >= 2000) |>
+  group_by(artist_country) |>
+  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = "drop") |>
+  arrange(desc(sum_total_points)) |>
+  slice_head(n = 10) # Cuts the list into just the top 10 countries.
+
+# Plot
+ggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),
+                          y = sum_total_points)) +
+  geom_col(fill = "cornflowerblue") + 
+  geom_text(aes(label = sum_total_points),
+            hjust = -.1,
+            size = 2) +
+  coord_flip() +
+  labs(title = "Top 10 Eurovision Countries by Total Points (2000–Present)",
+       x = "Country",
+       y = "Total Points") +
+  theme_light()
+
+```
+
+## Analysis

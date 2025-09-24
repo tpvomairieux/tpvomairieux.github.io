@@ -1,0 +1,64 @@
+---
+title: "Spotify"
+description: |
+  Analysis of Spotify from TidyTuesday
+author: Phu Vo
+date: September 23, 2025
+format: html
+---
+
+## Introduction
+
+
+## Code and Graph
+
+```{r}
+#| include: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+```{r}
+#| include: false
+
+# TidyTuesday Spotify Dataset (week 01-21-2020).
+
+spotify <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-01-21/spotify_songs.csv')
+
+```
+
+```{r}
+#| echo: true
+
+#Filtered by popular tracks with scores >= 90
+popular_tracks <- spotify |>
+  filter(track_popularity >= 90)
+
+# Top 10 artists by average danceability among popular tracks
+top_danceable_popular <- popular_tracks |>
+  group_by(track_artist) |>
+  summarize(avg_danceability = mean(danceability, na.rm = TRUE),
+            .groups = "drop") |>
+  arrange(desc(avg_danceability)) |>
+  slice_head(n = 10)
+
+# Plot
+ggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),
+                                  y = avg_danceability)) +
+  geom_col(fill = "darkseagreen2") +
+  geom_text(aes(label = round(avg_danceability, 2)),
+            hjust = -.1,
+            size = 2) +
+  coord_flip() +
+  labs(title = "Most Danceable Artists filtered by Popular Tracks >=90 (Frat Party Final Bosses)",
+       x = "Artist",
+       y = "Average Danceability") +
+  theme_light()+
+  theme(plot.title = element_text(size = 12),
+        axis.text.y = element_text(size = 8)
+        )
+```
+
+## Analysis

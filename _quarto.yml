@@ -11,19 +11,13 @@ website:
       - href: index.qmd
         text: Home
         
-      - href: about.qmd
-        text: Test Page
-        
-      - href: resources.qmd
-        text: Resources
-        
       - text: Data Viz
         menu:
-          - text: "NY Times Bestsellers List"
-            href: dv1.html
-            
           - text: "Eurovision Song Contest"
-            href: dv2.html
+            href: dveu.html
+
+          - text: "Spotify"
+            href: dvspot.html
 
 format:
   html:

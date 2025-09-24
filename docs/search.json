@@ -26,5 +26,89 @@
     "title": "Phu’s DS Project",
     "section": "Experience",
     "text": "Experience\nFunemployed"
+  },
+  {
+    "objectID": "dv1.html",
+    "href": "dv1.html",
+    "title": "Spotify",
+    "section": "",
+    "text": "hi"
+  },
+  {
+    "objectID": "dv2.html",
+    "href": "dv2.html",
+    "title": "Eurovision Song Contest",
+    "section": "",
+    "text": "#| include: true\n\n# Average points by country across Eurovision history.\navg_points &lt;- euro |&gt;\n  group_by(artist_country) |&gt;\n  summarise(mean_points = mean(total_points, na.rm = TRUE),\n            n = n()) |&gt;\n  arrange(desc(mean_points)) |&gt;\n  slice_head(n = 10)\n\nggplot(avg_points, aes(x = reorder(artist_country, mean_points), \n                       y = mean_points)) +\n  geom_col(fill = \"cornflowerblue\") +\n  coord_flip() +\n  labs(title = \"Top 10 Countries by Average Eurovision Points\",\n       x = \"Country\", y = \"Average Points\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "dvspot.html",
+    "href": "dvspot.html",
+    "title": "Spotify",
+    "section": "",
+    "text": "#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
+  },
+  {
+    "objectID": "dveu.html",
+    "href": "dveu.html",
+    "title": "Eurovision Song Contest",
+    "section": "",
+    "text": "# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Phu’s DS Project",
+    "section": "About Me",
+    "text": "About Me"
+  },
+  {
+    "objectID": "dvspot.html#introduction",
+    "href": "dvspot.html#introduction",
+    "title": "Spotify",
+    "section": "",
+    "text": "#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
+  },
+  {
+    "objectID": "dvspot.html#analysis",
+    "href": "dvspot.html#analysis",
+    "title": "Spotify",
+    "section": "Analysis",
+    "text": "Analysis"
+  },
+  {
+    "objectID": "dveu.html#introduction",
+    "href": "dveu.html#introduction",
+    "title": "Eurovision Song Contest",
+    "section": "",
+    "text": "# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "dveu.html#analysis",
+    "href": "dveu.html#analysis",
+    "title": "Eurovision Song Contest",
+    "section": "Analysis",
+    "text": "Analysis"
+  },
+  {
+    "objectID": "dveu.html#code",
+    "href": "dveu.html#code",
+    "title": "Eurovision Song Contest",
+    "section": "Code",
+    "text": "Code\n\n# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "dvspot.html#code",
+    "href": "dvspot.html#code",
+    "title": "Spotify",
+    "section": "Code",
+    "text": "Code\n\n#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
+  },
+  {
+    "objectID": "dveu.html#code-and-graph",
+    "href": "dveu.html#code-and-graph",
+    "title": "Eurovision Song Contest",
+    "section": "Code and Graph",
+    "text": "Code and Graph\n\n# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
   }
 ]
