@@ -1,0 +1,8 @@
+---
+title: "NYT Bestsellers List"
+description: |
+  Analysis of NYT Bestsellers from TidyTuesday
+author: Phu Vo
+date: September 23, 2025
+format: html
+---

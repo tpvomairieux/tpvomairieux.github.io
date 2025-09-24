@@ -2,15 +2,29 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "tpvomairieux.github.io",
+    "title": "Phu’s DS Project",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Pomona College | Claremont, CA\nB. A in Computer Science | Aug. 2024 - May 2028"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Hello, world!\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Phu’s DS Project",
+    "section": "",
+    "text": "Pomona College | Claremont, CA\nB. A in Computer Science | Aug. 2024 - May 2028"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Phu’s DS Project",
+    "section": "Experience",
+    "text": "Experience\nFunemployed"
   }
 ]

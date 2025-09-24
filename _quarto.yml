@@ -5,20 +5,34 @@ project:
 # ~ additional metadata excluded for brevity ~
 
 website:
-  title: "tpvomairieux.github.io"
+  title: "Phu Vo"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+        
+      - href: about.qmd
+        text: Test Page
+        
+      - href: resources.qmd
+        text: Resources
+        
+      - text: Data Viz
+        menu:
+          - text: "NY Times Bestsellers List"
+            href: dv1.html
+            
+          - text: "Eurovision Song Contest"
+            href: dv2.html
 
 format:
   html:
     theme:
-      - cosmo
+      - yeti
       - brand
     css: styles.css
     toc: true
+    page-layout: full
 
 editor: visual
 

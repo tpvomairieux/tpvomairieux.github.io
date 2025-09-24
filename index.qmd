@@ -1,11 +1,26 @@
 ---
-title: "tpvomairieux.github.io"
+title: "Phu's DS Project"
+about:
+  template: trestles
+  image: media\hi.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/tpvomairieux
+    - icon: spotify
+      text: Music
+      href: https://tinyurl.com/s5597th
+    - icon: github
+      text: Website Repo
+      href: https://tinyurl.com/3eyxtu9r
 ---
 
-This is a Quarto website.
+## Education
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Pomona College | Claremont, CA
 
-```{r}
-1 + 1
-```
+B. A in Computer Science | Aug. 2024 - May 2028
+
+## Experience
+
+Funemployed
