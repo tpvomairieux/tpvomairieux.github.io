@@ -3,7 +3,7 @@ title: "Eurovision Song Contest"
 description: |
   Analysis of Eurovision from TidyTuesday
 author: Phu Vo
-date: September 23, 2025
+date: September 24, 2025
 format: html
 ---
 

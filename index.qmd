@@ -1,5 +1,5 @@
 ---
-title: "Phu's DS Project"
+title: "Phu's Datascience Project"
 about:
   template: trestles
   image: media\hi.jpg

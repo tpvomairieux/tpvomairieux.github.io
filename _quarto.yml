@@ -7,8 +7,7 @@ project:
 website:
   title: "Phu Vo"
   navbar:
-  
-    left:
+      left:
       - href: index.qmd
         text: Home
         
@@ -22,7 +21,7 @@ website:
 
           - text: "Spotify"
             href: dvspot.html
-
+            
 format:
   html:
     theme:
