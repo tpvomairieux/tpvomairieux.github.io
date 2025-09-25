@@ -5,8 +5,11 @@ project:
 # ~ additional metadata excluded for brevity ~
 
 website:
+
   title: "Phu Vo"
+
   navbar:
+  
     left:
       - href: index.html
         text: Home
