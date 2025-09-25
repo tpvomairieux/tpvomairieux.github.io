@@ -1,0 +1,38 @@
+---
+title: "Phu's Datascience Project"
+about:
+  template: trestles
+  image: media\hi.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/tpvomairieux
+    - icon: spotify
+      text: Music
+      href: https://tinyurl.com/s5597th
+    - icon: github
+      text: Website Repo
+      href: https://tinyurl.com/3eyxtu9r
+      
+format: html
+---
+
+## Education
+
+Pomona College | Claremont, CA
+
+B. A in Computer Science | Aug. 2024 - May 2028
+
+## About Me
+
+Hi! I'm Phu, a Sophmore at Pomona College. I'm originally
+from Nha Trang, Vietnam, but live in the states now (Richmond, VA).
+One of my greatest passions in life is music.
+I didn't have the opportunity growing up, but after getting
+a job, I've been able to buy the instruments
+and have been learning guitar, piano, and ukulele.
+I'm taking voice lessons at Pomona currently! You'll find
+my Spotify linked below my profile picture, if you're interested
+in what music I listen to. Because music is such a big part of
+my life, I decided to do my TidyTuesday analyses on Eurovision
+and Spotify statistics. Hope you enjoy my short page!
