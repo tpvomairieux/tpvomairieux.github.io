@@ -60,7 +60,7 @@
     "href": "index.html#about-me",
     "title": "Phu’s DS Project",
     "section": "About Me",
-    "text": "About Me"
+    "text": "About Me\nHi! I’m Phu, a Sophmore at Pomona College. I’m originally from Nha Trang, Vietnam, but live in the states now (Richmond, VA). One of my greatest passions in life is music. I didn’t have the opportunity growing up, but after getting a job, I’ve been able to buy the instruments and have been learning guitar, piano, and ukulele. I’m taking voice lessons at Pomona currently! You’ll find my Spotify linked below my profile picture, if you’re interested in what music I listen to. Because music is such a big part of my life, I decided to do my TidyTuesday analyses on Eurovision and Spotify statistics. Hope you enjoy my short page!"
   },
   {
     "objectID": "dvspot.html#introduction",
@@ -110,5 +110,54 @@
     "title": "Eurovision Song Contest",
     "section": "Code and Graph",
     "text": "Code and Graph\n\n# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "dveu.html#link-and-credits",
+    "href": "dveu.html#link-and-credits",
+    "title": "Eurovision Song Contest",
+    "section": "Link and Credits",
+    "text": "Link and Credits"
+  },
+  {
+    "objectID": "dvspot.html#code-and-graph",
+    "href": "dvspot.html#code-and-graph",
+    "title": "Spotify",
+    "section": "Code and Graph",
+    "text": "Code and Graph\n\n#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
+  },
+  {
+    "objectID": "dvspot.html#link-and-credits",
+    "href": "dvspot.html#link-and-credits",
+    "title": "Spotify",
+    "section": "Link and Credits",
+    "text": "Link and Credits"
+  },
+  {
+    "objectID": "docs/p1.html",
+    "href": "docs/p1.html",
+    "title": "Piano Sample 1",
+    "section": "",
+    "text": "Here’s a piano sample:"
+  },
+  {
+    "objectID": "index.html#piano-sample",
+    "href": "index.html#piano-sample",
+    "title": "Phu’s DS Project",
+    "section": "Piano Sample",
+    "text": "Piano Sample\nHere’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて. I know HTML, so I used it to show a video:\n\n\nYour browser does not support the video tag."
+  },
+  {
+    "objectID": "p1.html",
+    "href": "p1.html",
+    "title": "Piano Sample",
+    "section": "",
+    "text": "Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて. I know HTML, so I used it to show a video:"
+  },
+  {
+    "objectID": "p1.html#piano-sample",
+    "href": "p1.html#piano-sample",
+    "title": "Piano Sample",
+    "section": "",
+    "text": "Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて. I know HTML, so I used it to show a video:"
   }
 ]
