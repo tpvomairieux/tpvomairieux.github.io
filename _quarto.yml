@@ -9,7 +9,7 @@ website:
   navbar:
   
     left:
-      - href: index.html
+      - href: index.qmd
         text: Home
         
       - href: p1.html
