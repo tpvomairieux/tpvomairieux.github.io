@@ -7,53 +7,11 @@
     "text": "Pomona College | Claremont, CA\nB. A in Computer Science | Aug. 2024 - May 2028"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hello, world!\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Phu’s DS Project",
     "section": "",
     "text": "Pomona College | Claremont, CA\nB. A in Computer Science | Aug. 2024 - May 2028"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Phu’s DS Project",
-    "section": "Experience",
-    "text": "Experience\nFunemployed"
-  },
-  {
-    "objectID": "dv1.html",
-    "href": "dv1.html",
-    "title": "Spotify",
-    "section": "",
-    "text": "hi"
-  },
-  {
-    "objectID": "dv2.html",
-    "href": "dv2.html",
-    "title": "Eurovision Song Contest",
-    "section": "",
-    "text": "#| include: true\n\n# Average points by country across Eurovision history.\navg_points &lt;- euro |&gt;\n  group_by(artist_country) |&gt;\n  summarise(mean_points = mean(total_points, na.rm = TRUE),\n            n = n()) |&gt;\n  arrange(desc(mean_points)) |&gt;\n  slice_head(n = 10)\n\nggplot(avg_points, aes(x = reorder(artist_country, mean_points), \n                       y = mean_points)) +\n  geom_col(fill = \"cornflowerblue\") +\n  coord_flip() +\n  labs(title = \"Top 10 Countries by Average Eurovision Points\",\n       x = \"Country\", y = \"Average Points\") +\n  theme_bw()"
-  },
-  {
-    "objectID": "dvspot.html",
-    "href": "dvspot.html",
-    "title": "Spotify",
-    "section": "",
-    "text": "The Spotify dataset contains a file named spotify_songs.csv, and is a collection of thousands of songs with unique variables such as track_id, track_name, track_artist, and track_popularity, among others. One of the variables I found to be interesting and analyzeable was “danceability.” Recently, I’ve started going to some parties again, but the DJs have been playing pretty bad songs… I decided to find out the artists who produce the “best” party music using the data. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
-  },
-  {
-    "objectID": "dveu.html",
-    "href": "dveu.html",
-    "title": "Eurovision Song Contest",
-    "section": "",
-    "text": "The Eurovision dataset contains a filed called eurovision.csv, and is a collection of data from Eurovision contests since its inception in 1956, with the exception of the 2020 Covid Year. The dataset represents information for all contestants for each year and by round, but it is important to note that changes in the scoring system have occurred throughout different points in time.For example, semi-final rounds were not introduced until 2005. Variables include the event, the host city, the artist country of origin, their song, the points they accumulated, and their rank, among others. I listened to a lot of Eurovision classics without having known before, so it was a pleasant surprise to do an analysis of the top Eurovision countries. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
   },
   {
     "objectID": "index.html#about-me",
@@ -63,18 +21,11 @@
     "text": "About Me\nHi! I’m Phu, a Sophmore at Pomona College. I’m originally from Nha Trang, Vietnam, but live in the states now (Richmond, VA). One of my greatest passions in life is music. I didn’t have the opportunity growing up, but after getting a job, I’ve been able to buy the instruments and have been learning guitar, piano, and ukulele. I’m taking voice lessons at Pomona currently! You’ll find my Spotify linked below my profile picture, if you’re interested in what music I listen to. Because music is such a big part of my life, I decided to do my TidyTuesday analyses on Eurovision and Spotify statistics. Hope you enjoy my short page!"
   },
   {
-    "objectID": "dvspot.html#introduction",
-    "href": "dvspot.html#introduction",
-    "title": "Spotify",
+    "objectID": "dveu.html",
+    "href": "dveu.html",
+    "title": "Eurovision Song Contest",
     "section": "",
-    "text": "The Spotify dataset contains a file named spotify_songs.csv, and is a collection of thousands of songs with unique variables such as track_id, track_name, track_artist, and track_popularity, among others. One of the variables I found to be interesting and analyzeable was “danceability.” Recently, I’ve started going to some parties again, but the DJs have been playing pretty bad songs… I decided to find out the artists who produce the “best” party music using the data. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
-  },
-  {
-    "objectID": "dvspot.html#analysis",
-    "href": "dvspot.html#analysis",
-    "title": "Spotify",
-    "section": "Analysis",
-    "text": "Analysis\nInfluenced by party music, I created a horizontal bar chart to show the top 10 artists with tracks that have the highest average danceability. A score of 0 would represent undanceable, and a score of 1 to be extremely danceable. I decided to sort songs by popularities of greater than or equal to 90, because the song has to be “relevant” enough for a college to know and be able to vibe/dance to. Roddy Rich tops the list with the highest average danceability of 0.90 –he’s followed by artists like Dimelo Flow, Lil Uzi Vert, Regard, Rauw Alejandro, and Lil Nas X, with their scores at around 0.90. The above artists are Hip/Hop creators, Reggaeton singers, and DJs, which make sense– the cultural background of the music they create has a strong history of dance and high energy levels. Next, Y2K scored 0.84, Ed Sheeran scored 0.82, Tones and I 0.82, and Nicky Jam 0.82. The results suggest that among mainstream artists, hip-hop, reggaeton, and pop crossovers tend to dominate in term of danceable tracks. It’s important to note that filtering an artist by their top hits only may not accurately represent their music’s danceability. For example, Ed Sheeran has a lot of indie music on top of his pop hits, however, as they aren’t as relevant, the popularity filter does not account for the danceability of those tracks, increasing his score. However, I believe that the parameters still give us a good way to analyze which artists we should be playing to dance. So, the next time I go to a party, or high-octane social event, I better hear one of these artists! Or, we’ll just get some 2010s house again…"
+    "text": "The Eurovision dataset contains a filed called eurovision.csv, and is a collection of data from Eurovision contests since its inception in 1956, with the exception of the 2020 Covid Year. The dataset represents information for all contestants for each year and by round, but it is important to note that changes in the scoring system have occurred throughout different points in time.For example, semi-final rounds were not introduced until 2005. Variables include the event, the host city, the artist country of origin, their song, the points they accumulated, and their rank, among others. I listened to a lot of Eurovision classics without having known before, so it was a pleasant surprise to do an analysis of the top Eurovision countries. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
   },
   {
     "objectID": "dveu.html#introduction",
@@ -84,32 +35,18 @@
     "text": "The Eurovision dataset contains a filed called eurovision.csv, and is a collection of data from Eurovision contests since its inception in 1956, with the exception of the 2020 Covid Year. The dataset represents information for all contestants for each year and by round, but it is important to note that changes in the scoring system have occurred throughout different points in time.For example, semi-final rounds were not introduced until 2005. Variables include the event, the host city, the artist country of origin, their song, the points they accumulated, and their rank, among others. I listened to a lot of Eurovision classics without having known before, so it was a pleasant surprise to do an analysis of the top Eurovision countries. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
   },
   {
-    "objectID": "dveu.html#analysis",
-    "href": "dveu.html#analysis",
-    "title": "Eurovision Song Contest",
-    "section": "Analysis",
-    "text": "Analysis\nThe horizontal bar chart shows the total Eurovision points earned by countries since 2005 (the introduction of the semi-final system, to make results more comparable to the modern contest). Sweden dominates the charts with 5669 points, followed by Ukraine with 4998 and Russia with 3977. Norway, Greece, Azerbaijan, and Moldova show solid performances in their Eurovision entries. In particular, Azerbaijan only entered the competition in 2008, so 3 years late, but is 6th in total accumulated points, with 3528– an extraordinary result.The following countries are followed by Serbia, then the Netherlands, and lastly Bulgaria, with 2945 points. Eastern European countries dominate the charts, which is surprising, given that the Eurovision “Big-Five,” all Western European countries (U.K., Spain, Germany, France, Italy) are now automatically qualified to the finals despite not scoring the highest. Perhaps, it’s time for a new “Big Five?” Or, do the countries not try as hard to score points, knowing that they are guaranteed finalists due to their financial backing of the competition? It is important to acknowledge that there have been some disbanded countries (countries that no longer exist, such as Serbia and Montenegro), or inactive countries, which affect the total accumulated score of the country (especially in a split like Serbia and Montenegro). I decided that it was better to still continue with total accumulated points compared to average points, because Serbia and Montenegro for example participated in a single contest, placed 2nd, and while is obviously an outlier, “rules” the dataset as the best country by average points."
-  },
-  {
-    "objectID": "dveu.html#code",
-    "href": "dveu.html#code",
-    "title": "Eurovision Song Contest",
-    "section": "Code",
-    "text": "Code\n\n# Top 10 countries by cumulative total points since 2000\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2000) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2000–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
-  },
-  {
-    "objectID": "dvspot.html#code",
-    "href": "dvspot.html#code",
-    "title": "Spotify",
-    "section": "Code",
-    "text": "Code\n\n#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
-  },
-  {
     "objectID": "dveu.html#code-and-graph",
     "href": "dveu.html#code-and-graph",
     "title": "Eurovision Song Contest",
     "section": "Code and Graph",
     "text": "Code and Graph\n\n# Top 10 countries by cumulative total points since 2005\ntop_countries &lt;- euro |&gt;\n  filter(year &gt;= 2005) |&gt;\n  group_by(artist_country) |&gt;\n  summarize(sum_total_points = sum(total_points, na.rm = TRUE), .groups = \"drop\") |&gt;\n  arrange(desc(sum_total_points)) |&gt;\n  slice_head(n = 10) # Cuts the list into just the top 10 countries.\n\n# Plot\nggplot(top_countries, aes(x = reorder(artist_country, sum_total_points),\n                          y = sum_total_points)) +\n  geom_col(fill = \"cornflowerblue\") + \n  geom_text(aes(label = sum_total_points),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Top 10 Eurovision Countries by Total Points (2005–Present)\",\n       x = \"Country\",\n       y = \"Total Points\") +\n  theme_light()"
+  },
+  {
+    "objectID": "dveu.html#analysis",
+    "href": "dveu.html#analysis",
+    "title": "Eurovision Song Contest",
+    "section": "Analysis",
+    "text": "Analysis\nThe horizontal bar chart shows the total Eurovision points earned by countries since 2005 (the introduction of the semi-final system, to make results more comparable to the modern contest). Sweden dominates the charts with 5669 points, followed by Ukraine with 4998 and Russia with 3977. Norway, Greece, Azerbaijan, and Moldova show solid performances in their Eurovision entries. In particular, Azerbaijan only entered the competition in 2008, so 3 years late, but is 6th in total accumulated points, with 3528– an extraordinary result.The following countries are followed by Serbia, then the Netherlands, and lastly Bulgaria, with 2945 points. Eastern European countries dominate the charts, which is surprising, given that the Eurovision “Big-Five,” all Western European countries (U.K., Spain, Germany, France, Italy) are now automatically qualified to the finals despite not scoring the highest. Perhaps, it’s time for a new “Big Five?” Or, do the countries not try as hard to score points, knowing that they are guaranteed finalists due to their financial backing of the competition? It is important to acknowledge that there have been some disbanded countries (countries that no longer exist, such as Serbia and Montenegro), or inactive countries, which affect the total accumulated score of the country (especially in a split like Serbia and Montenegro). I decided that it was better to still continue with total accumulated points compared to average points, because Serbia and Montenegro for example participated in a single contest, placed 2nd, and while is obviously an outlier, “rules” the dataset as the best country by average points."
   },
   {
     "objectID": "dveu.html#link-and-credits",
@@ -119,11 +56,39 @@
     "text": "Link and Credits\nThe data is provided by Eurovision, and Tanya Shapiro and Bob Rudis shared methods to clean and scrape the data. The link to the dataset can be accessed here: TidyTuesday Eurovision Dataset."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello, world!\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "dvspot.html",
+    "href": "dvspot.html",
+    "title": "Spotify",
+    "section": "",
+    "text": "The Spotify dataset contains a file named spotify_songs.csv, and is a collection of thousands of songs with unique variables such as track_id, track_name, track_artist, and track_popularity, among others. One of the variables I found to be interesting and analyzeable was “danceability.” Recently, I’ve started going to some parties again, but the DJs have been playing pretty bad songs… I decided to find out the artists who produce the “best” party music using the data. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
+  },
+  {
+    "objectID": "dvspot.html#introduction",
+    "href": "dvspot.html#introduction",
+    "title": "Spotify",
+    "section": "",
+    "text": "The Spotify dataset contains a file named spotify_songs.csv, and is a collection of thousands of songs with unique variables such as track_id, track_name, track_artist, and track_popularity, among others. One of the variables I found to be interesting and analyzeable was “danceability.” Recently, I’ve started going to some parties again, but the DJs have been playing pretty bad songs… I decided to find out the artists who produce the “best” party music using the data. Sources of the TidyTuesday dataset will be provided at the bottom of the page."
+  },
+  {
     "objectID": "dvspot.html#code-and-graph",
     "href": "dvspot.html#code-and-graph",
     "title": "Spotify",
     "section": "Code and Graph",
     "text": "Code and Graph\n\n#Filtered by popular tracks with scores &gt;= 90\npopular_tracks &lt;- spotify |&gt;\n  filter(track_popularity &gt;= 90)\n\n# Top 10 artists by average danceability among popular tracks\ntop_danceable_popular &lt;- popular_tracks |&gt;\n  group_by(track_artist) |&gt;\n  summarize(avg_danceability = mean(danceability, na.rm = TRUE),\n            .groups = \"drop\") |&gt;\n  arrange(desc(avg_danceability)) |&gt;\n  slice_head(n = 10)\n\n# Plot\nggplot(top_danceable_popular, aes(x = reorder(track_artist, avg_danceability),\n                                  y = avg_danceability)) +\n  geom_col(fill = \"darkseagreen2\") +\n  geom_text(aes(label = round(avg_danceability, 2)),\n            hjust = -.1,\n            size = 2) +\n  coord_flip() +\n  labs(title = \"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)\",\n       x = \"Artist\",\n       y = \"Average Danceability\") +\n  theme_light()+\n  theme(plot.title = element_text(size = 12),\n        axis.text.y = element_text(size = 8)\n        )"
+  },
+  {
+    "objectID": "dvspot.html#analysis",
+    "href": "dvspot.html#analysis",
+    "title": "Spotify",
+    "section": "Analysis",
+    "text": "Analysis\nInfluenced by party music, I created a horizontal bar chart to show the top 10 artists with tracks that have the highest average danceability. A score of 0 would represent undanceable, and a score of 1 to be extremely danceable. I decided to sort songs by popularities of greater than or equal to 90, because the song has to be “relevant” enough for a college to know and be able to vibe/dance to. Roddy Rich tops the list with the highest average danceability of 0.90 –he’s followed by artists like Dimelo Flow, Lil Uzi Vert, Regard, Rauw Alejandro, and Lil Nas X, with their scores at around 0.90. The above artists are Hip/Hop creators, Reggaeton singers, and DJs, which make sense– the cultural background of the music they create has a strong history of dance and high energy levels. Next, Y2K scored 0.84, Ed Sheeran scored 0.82, Tones and I 0.82, and Nicky Jam 0.82. The results suggest that among mainstream artists, hip-hop, reggaeton, and pop crossovers tend to dominate in term of danceable tracks. It’s important to note that filtering an artist by their top hits only may not accurately represent their music’s danceability. For example, Ed Sheeran has a lot of indie music on top of his pop hits, however, as they aren’t as relevant, the popularity filter does not account for the danceability of those tracks, increasing his score. However, I believe that the parameters still give us a good way to analyze which artists we should be playing to dance. So, the next time I go to a party, or high-octane social event, I better hear one of these artists! Or, we’ll just get some 2010s house again…"
   },
   {
     "objectID": "dvspot.html#link-and-credits",
@@ -133,31 +98,10 @@
     "text": "Link and Credits\nThe data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: TidyTuesday Spotify Dataset."
   },
   {
-    "objectID": "docs/p1.html",
-    "href": "docs/p1.html",
-    "title": "Piano Sample 1",
-    "section": "",
-    "text": "Here’s a piano sample:"
-  },
-  {
-    "objectID": "index.html#piano-sample",
-    "href": "index.html#piano-sample",
-    "title": "Phu’s DS Project",
-    "section": "Piano Sample",
-    "text": "Piano Sample\nHere’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて. I know HTML, so I used it to show a video:\n\n\nYour browser does not support the video tag."
-  },
-  {
     "objectID": "p1.html",
     "href": "p1.html",
     "title": "Piano Sample",
     "section": "",
     "text": "Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて.\n\n\nYour browser does not support the video tag."
-  },
-  {
-    "objectID": "p1.html#piano-sample",
-    "href": "p1.html#piano-sample",
-    "title": "Piano Sample",
-    "section": "",
-    "text": "Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて. I know HTML, so I used it to show a video:"
   }
 ]
