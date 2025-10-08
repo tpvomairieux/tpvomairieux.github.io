@@ -68,4 +68,4 @@ Influenced by party music, I created a horizontal bar chart to show the top 10 a
 
 ## Link and Credits
 
-The data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: [TidyTuesday Spotify Dataset](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-21).
+The data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: [TidyTuesday Spotify Dataset](https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-21). From <https://open.spotify.com/>.
