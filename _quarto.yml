@@ -14,13 +14,16 @@ website:
       - href: p1.html
         text: Piano Sample
 
-      - text: Data Viz
+      - text: Proj. 1 (Data Viz)
         menu:
           - text: "Eurovision Song Contest"
             href: dveu.html
 
           - text: "Spotify"
             href: dvspot.html
+      
+      - href: Dickinson.html
+        text: Proj. 2 (Full Text Analysis)
             
 format:
   html:

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Phu Vo">
-<meta name="dcterms.date" content="2025-09-24">
-<meta name="description" content="Analysis of Spotify from TidyTuesday">
+<meta name="dcterms.date" content="2025-10-08">
+<meta name="description" content="Analysis of Emily Dickinson Poems from Project Gutenberg">
 
-<title>Spotify – Phu Vo</title>
+<title>Emily Dickinson Poems – Phu Vo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./Dickinson.html"> 
+    <a class="nav-link active" href="./Dickinson.html" aria-current="page"> 
 <span class="menu-text">Proj. 2 (Full Text Analysis)</span></a>
   </li>  
 </ul>
@@ -169,9 +169,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#code-and-graph" id="toc-code-and-graph" class="nav-link" data-scroll-target="#code-and-graph">Code and Graph</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a></li>
-  <li><a href="#link-and-credits" id="toc-link-and-credits" class="nav-link" data-scroll-target="#link-and-credits">Link and Credits</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  <li><a href="#plot-1-most-frequent-words" id="toc-plot-1-most-frequent-words" class="nav-link" data-scroll-target="#plot-1-most-frequent-words">Plot 1 – Most Frequent Words</a></li>
+  <li><a href="#poem-length-vs.-punctuation-count" id="toc-poem-length-vs.-punctuation-count" class="nav-link" data-scroll-target="#poem-length-vs.-punctuation-count">Poem Length vs.&nbsp;Punctuation Count</a></li>
+  <li><a href="#narrative" id="toc-narrative" class="nav-link" data-scroll-target="#narrative">Narrative</a></li>
   </ul>
 </nav>
     </div>
@@ -180,12 +182,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Spotify</h1>
+<h1 class="title">Emily Dickinson Poems</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Analysis of Spotify from TidyTuesday</p>
+    <p>Analysis of Emily Dickinson Poems from Project Gutenberg</p>
   </div>
 </div>
 
@@ -202,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2025</p>
+      <p class="date">October 8, 2025</p>
     </div>
   </div>
   
@@ -216,54 +218,113 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The Spotify dataset contains a file named spotify_songs.csv, and is a collection of thousands of songs with unique variables such as track_id, track_name, track_artist, and track_popularity, among others. One of the variables I found to be interesting and analyzeable was “danceability.” Recently, I’ve started going to some parties again, but the DJs have been playing pretty bad songs… I decided to find out the artists who produce the “best” party music using the data. Sources of the TidyTuesday dataset will be provided at the bottom of the page.</p>
+<p>For this week’s project, I decided to do a full-text analysis from a collection of all of Emily Dickinson’s poems, transcribed by Jim Tinsley and made freely available on the Gutenberg project. In my analysis, I use 6 str_*() functions, those being str_count(), str_detect(), str_to_lower(), str_split(), str_extract(), and str_extract_all(). The lookaround I use is a lookbehind. I use 4 regular expressions – 1) to detect whether or not a poem contains death related words, 2) to extract any “year-like” number (4-digits), 3) during the lookbehind, and 4) to count the number of punctuation Dickinson uses. My two plots include one that graphs the top 10 most frequent words in Dickinson poems, and the second being an analysis of poem length to punctuation count– which, we should see, that the longer the poem length, the more punctuation it features.</p>
 </section>
-<section id="code-and-graph" class="level2">
-<h2 class="anchored" data-anchor-id="code-and-graph">Code and Graph</h2>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<p>The data of the Emily Dickinson Poems come from the Amherst-Statistics/DickinsonPoems GitHub repository, created by Nicholas Horton (reachable at nicholasjhorton@gmail.com), which includes transcriptions of Dickinson’s poems in the DickinsonPoems package. The link to the GitHub repo can be accessed via the following: <a href="https://github.com/Amherst-Statistics/DickinsonPoems">Github</a>.The dataset comes from Project Gutenberg, which is an e-Library of over 75,000 eBooks. The author of the poems, is, well, Emily Dickinson, and the transcriptions were produced by Jim Tinsley, who can be contacted at jtinsley@pobox.com. These poems can be accesed here: <a href="https://www.gutenberg.org/files/12242/12242-h/12242-h.htm">Gutenberg</a>.</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtered by popular tracks with scores &gt;= 90</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>popular_tracks <span class="ot">&lt;-</span> spotify <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(track_popularity <span class="sc">&gt;=</span> <span class="dv">90</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regular Expressions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>death_regexp <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">b(death|die|grave|funeral|corpse|end|demise|passing)</span><span class="sc">\\</span><span class="st">b"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 artists by average danceability among popular tracks</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>top_danceable_popular <span class="ot">&lt;-</span> popular_tracks <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(track_artist) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_danceability =</span> <span class="fu">mean</span>(danceability, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_danceability)) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_danceable_popular, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(track_artist, avg_danceability),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">y =</span> avg_danceability)) <span class="sc">+</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkseagreen2"</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(avg_danceability, <span class="dv">2</span>)),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust =</span> <span class="sc">-</span>.<span class="dv">1</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Most Danceable Artists filtered by Popular Tracks &gt;=90 (Frat Party Final Bosses)"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Artist"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Danceability"</span>) <span class="sc">+</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()<span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>year_regexp <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">b(10|11|12|13|14|15|16|17|18|19|20)</span><span class="sc">\\</span><span class="st">d{2}</span><span class="sc">\\</span><span class="st">b"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># LookAround (Look Behind)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>after_word_my_regexp <span class="ot">&lt;-</span> <span class="st">"(?&lt;=</span><span class="sc">\\</span><span class="st">bmy</span><span class="sc">\\</span><span class="st">s)[A-Za-z']+"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>poems <span class="ot">&lt;-</span> poems <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">punctuation_count =</span> <span class="fu">str_count</span>(text, <span class="st">"[[:punct:]]"</span>),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">mentions_death =</span> <span class="fu">str_detect</span>(<span class="fu">str_to_lower</span>(text), death_regexp),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">years_found =</span> <span class="fu">str_extract_all</span>(text, year_regexp),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">after_word_my_regexp =</span> <span class="fu">str_extract</span>(text, after_word_my_regexp)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>poems <span class="sc">|&gt;</span> <span class="fu">select</span>(poem_id, n_lines, punctuation_count, mentions_death, years_found, after_word_my_regexp) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 6
+   poem_id           n_lines punctuation_count mentions_death years_found
+   &lt;chr&gt;               &lt;int&gt;             &lt;int&gt; &lt;lgl&gt;          &lt;list&gt;     
+ 1 gutenberg1.txt001      26                26 FALSE          &lt;chr [0]&gt;  
+ 2 gutenberg1.txt002      15                13 FALSE          &lt;chr [0]&gt;  
+ 3 gutenberg1.txt003      17                10 FALSE          &lt;chr [0]&gt;  
+ 4 gutenberg1.txt004      28                35 TRUE           &lt;chr [0]&gt;  
+ 5 gutenberg1.txt005      25                24 FALSE          &lt;chr [0]&gt;  
+ 6 gutenberg1.txt006      13                 7 FALSE          &lt;chr [0]&gt;  
+ 7 gutenberg1.txt007      17                10 FALSE          &lt;chr [0]&gt;  
+ 8 gutenberg1.txt008      20                16 TRUE           &lt;chr [0]&gt;  
+ 9 gutenberg1.txt009      15                11 TRUE           &lt;chr [0]&gt;  
+10 gutenberg1.txt010      42                30 FALSE          &lt;chr [0]&gt;  
+# ℹ 1 more variable: after_word_my_regexp &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>The above tibble is a sliced set of the poems dataframe, showing the first 10 poems after the text processing. Each row represents a single poem, identified by its poem ID. For the columns, poem_id is the unique identifier for each poem, n_lines the total number of lines in that poem, punctuation_count is the total number of punctuation marks in the poem (Dickinson used many punctuations in writing, especially dashes– I didn’t know how to specify the em-dash in r so I just did all punctuation), mentions_death is a Boolean that returns whether or not the poem contains death-related words (which I interpreted in death_regexp), years_found is a list containing any four-digit year-like patterns in the poem, and after_word_my_rgexp is the first word that follows “poem” in each poem, if present (using look behind, as Dickinson’s poems were often personal and invoked a lot of first-person pronouns).</p>
+</section>
+<section id="plot-1-most-frequent-words" class="level2">
+<h2 class="anchored" data-anchor-id="plot-1-most-frequent-words">Plot 1 – Most Frequent Words</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>most_used_words <span class="ot">&lt;-</span> tokenize <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(words, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>most_used_words <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(words, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"cornflowerblue"</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 Most Frequent Words in Emily Dickinson’s Poems"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Word"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Times Used"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="dvspot_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Dickinson_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>The above plot is a horizontal bar graph that shows the top 10 most frequent words in Emily Dickinson’s Poems. “The” is the most frequent word, with 1878 uses, followed by “a” and “and” with 775 and 767 uses respectively. Next, “to” is listed at 656 observations. It’s interesting to note that the next most used word, “I”, is a pronoun, and the only pronoun on the top 10. With 615 uses, it shows that most of Dickinson’s poems are written from first-person perspective or express personal thought and feeling. The rest of the top 10 is “of”, “it”, “in”, “that”, and “is”, with 543, 371, 357, 354, and 329 uses. The list reflects an analysis made by the Oxford English Corpus of the 100 most common words in written English, with 8 of the 10 of Dickinson’s most used words (only is and it are not in the top 10) being in the top 10, and only 1 (is) not being in the top 100. Dickinson, despite her unconventional punctuation and themes, still drew from everyday common English. Her uniqueness and innovation is not in her word choice, but rather her arrangement of words to create a complex story– a poem. Her poetry is accessible, as it uses familiar words, yet is profoundly layered as she explores her own emotions, thoughts, and existential reflections.</p>
 </section>
-<section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>Influenced by party music, I created a horizontal bar chart to show the top 10 artists with tracks that have the highest average danceability. A score of 0 would represent undanceable, and a score of 1 to be extremely danceable. I decided to sort songs by popularities of greater than or equal to 90, because the song has to be “relevant” enough for a college to know and be able to vibe/dance to. Roddy Rich tops the list with the highest average danceability of 0.90 –he’s followed by artists like Dimelo Flow, Lil Uzi Vert, Regard, Rauw Alejandro, and Lil Nas X, with their scores at around 0.90. The above artists are Hip/Hop creators, Reggaeton singers, and DJs, which make sense– the cultural background of the music they create has a strong history of dance and high energy levels. Next, Y2K scored 0.84, Ed Sheeran scored 0.82, Tones and I 0.82, and Nicky Jam 0.82. The results suggest that among mainstream artists, hip-hop, reggaeton, and pop crossovers tend to dominate in term of danceable tracks. It’s important to note that filtering an artist by their top hits only may not accurately represent their music’s danceability. For example, Ed Sheeran has a lot of indie music on top of his pop hits, however, as they aren’t as relevant, the popularity filter does not account for the danceability of those tracks, increasing his score. However, I believe that the parameters still give us a good way to analyze which artists we should be playing to dance. So, the next time I go to a party, or high-octane social event, I better hear one of these artists! Or, we’ll just get some 2010s house again…</p>
+<section id="poem-length-vs.-punctuation-count" class="level2">
+<h2 class="anchored" data-anchor-id="poem-length-vs.-punctuation-count">Poem Length vs.&nbsp;Punctuation Count</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(poems, <span class="fu">aes</span>(<span class="at">x =</span> n_lines, <span class="at">y =</span> punctuation_count)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"seagreen1"</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Correlation Between Poem Length and Punctuation Count"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Lines in Poem"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency of Punctuation(s)"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Dickinson_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above plot is scatter plot that displays the correlation between poem length and punctuation count. In theory, the more lines in a poem, the greater the frequency of punctuation. I decided to use a linear model (method = “lm”) as I believed that the number of lines in a poem should function as a direct explanation for the punctuation count in Dickinson’s poems. While the regression line shows a general upward trend, the data points reveal considerable variation, especially as poem length increases. Most frequently, the longer the poem, Dickinson will use more punctuation than the model predicts she would use. The variation could reflect her unconventional approach to grammar and poetic rhythm, which serve stylistically to contribute to the poem’s tone and emotion. Punctuation in a Dickinson work is not merely just a structural device, but a deliberate choice that reflects the aesthetic and elasticity of her poetry.</p>
 </section>
-<section id="link-and-credits" class="level2">
-<h2 class="anchored" data-anchor-id="link-and-credits">Link and Credits</h2>
-<p>The data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: <a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-01-21">TidyTuesday Spotify Dataset</a>. From <a href="https://open.spotify.com/" class="uri">https://open.spotify.com/</a>.</p>
+<section id="narrative" class="level2">
+<h2 class="anchored" data-anchor-id="narrative">Narrative</h2>
+<p>In completing this project, I wanted to have a better understanding of Emily Dickinson’s poetic style through a computational lens. While her writing is intensely emotional and personal, known for its introspection and peculiar use of punctuation, it also displays a structural consistency with recurring themes. I wondered if these qualities could be reflected quantitatively through text analysis. By counting word frequency, I was able to explore Dickinson’s vocabulary– interestingly, the most common words in her poetry are simple, everyday English words like “the”, “a”, and “and”. It suggests to me that rather than complex diction, Dickinson’s poetry’s power comes from how she arranges her work to express profound meaning. The presence of “I” supports a common interpretation that her work is self-reflective and personal.</p>
+<p>The regular expressions I designed further support my question. I tried to detect text from poems which reference words related to death, one of Dickinson’s most enduring themes, and extracted any year-like numbers that might situate her work temporally or support the theme of death and ending. By identifying words that followed “my”, I tried to trace personal/possessive language– all these textual patterns tell the story of how Emily Dickinson engaged with mortality, memory, limit, and subjectivity in her work.</p>
 
 
 </section>

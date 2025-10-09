@@ -53,7 +53,7 @@
     "href": "dveu.html#link-and-credits",
     "title": "Eurovision Song Contest",
     "section": "Link and Credits",
-    "text": "Link and Credits\nThe data is provided by Eurovision, and Tanya Shapiro and Bob Rudis shared methods to clean and scrape the data. The link to the dataset can be accessed here: TidyTuesday Eurovision Dataset."
+    "text": "Link and Credits\nThe data is provided by Eurovision, and Tanya Shapiro and Bob Rudis shared methods to clean and scrape the data. The link to the dataset can be accessed here: TidyTuesday Eurovision Dataset. From https://eurovision.tv/."
   },
   {
     "objectID": "about.html",
@@ -95,7 +95,7 @@
     "href": "dvspot.html#link-and-credits",
     "title": "Spotify",
     "section": "Link and Credits",
-    "text": "Link and Credits\nThe data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: TidyTuesday Spotify Dataset."
+    "text": "Link and Credits\nThe data comes from Spotify via the spotifyr package, authored by Charlie Thompson, Josiah Parry, Donal Phipps, and Tom Wolff. The link to the dataset can be accessed here: TidyTuesday Spotify Dataset. From https://open.spotify.com/."
   },
   {
     "objectID": "p1.html",
@@ -103,5 +103,54 @@
     "title": "Sample of Piano",
     "section": "",
     "text": "Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto’s コウを追いかけて.\n\n\nYour browser does not support the video tag."
+  },
+  {
+    "objectID": "Dickinson.html",
+    "href": "Dickinson.html",
+    "title": "Emily Dickinson Poems",
+    "section": "",
+    "text": "For this week’s project, I decided to do a full-text analysis from a collection of all of Emily Dickinson’s poems, transcribed by Jim Tinsley and made freely available on the Gutenberg project. In my analysis, I use 6 str_*() functions, those being str_count(), str_detect(), str_to_lower(), str_split(), str_extract(), and str_extract_all(). The lookaround I use is a lookbehind. I use 4 regular expressions – 1) to detect whether or not a poem contains death related words, 2) to extract any “year-like” number (4-digits), 3) during the lookbehind, and 4) to count the number of punctuation Dickinson uses. My two plots include one that graphs the top 10 most frequent words in Dickinson poems, and the second being an analysis of poem length to punctuation count– which, we should see, that the longer the poem length, the more punctuation it features."
+  },
+  {
+    "objectID": "Dickinson.html#introduction",
+    "href": "Dickinson.html#introduction",
+    "title": "Emily Dickinson Poems",
+    "section": "",
+    "text": "For this week’s project, I decided to do a full-text analysis from a collection of all of Emily Dickinson’s poems, transcribed by Jim Tinsley and made freely available on the Gutenberg project. In my analysis, I use 6 str_*() functions, those being str_count(), str_detect(), str_to_lower(), str_split(), str_extract(), and str_extract_all(). The lookaround I use is a lookbehind. I use 4 regular expressions – 1) to detect whether or not a poem contains death related words, 2) to extract any “year-like” number (4-digits), 3) during the lookbehind, and 4) to count the number of punctuation Dickinson uses. My two plots include one that graphs the top 10 most frequent words in Dickinson poems, and the second being an analysis of poem length to punctuation count– which, we should see, that the longer the poem length, the more punctuation it features."
+  },
+  {
+    "objectID": "Dickinson.html#data-source",
+    "href": "Dickinson.html#data-source",
+    "title": "Emily Dickinson Poems",
+    "section": "Data Source",
+    "text": "Data Source\nThe data of the Emily Dickinson Poems come from the Amherst-Statistics/DickinsonPoems GitHub repository, created by Nicholas Horton (reachable at nicholasjhorton@gmail.com), which includes transcriptions of Dickinson’s poems in the DickinsonPoems package. The link to the GitHub repo can be accessed via the following: Github.The dataset comes from Project Gutenberg, which is an e-Library of over 75,000 eBooks. The author of the poems, is, well, Emily Dickinson, and the transcriptions were produced by Jim Tinsley, who can be contacted at jtinsley@pobox.com. These poems can be accesed here: Gutenberg."
+  },
+  {
+    "objectID": "Dickinson.html#code",
+    "href": "Dickinson.html#code",
+    "title": "Emily Dickinson Poems",
+    "section": "Code",
+    "text": "Code\n\n# Regular Expressions\n\ndeath_regexp &lt;- \"\\\\b(death|die|grave|funeral|corpse|end|demise|passing)\\\\b\"\n\nyear_regexp &lt;- \"\\\\b(10|11|12|13|14|15|16|17|18|19|20)\\\\d{2}\\\\b\"\n\n# LookAround (Look Behind)\n\nafter_word_my_regexp &lt;- \"(?&lt;=\\\\bmy\\\\s)[A-Za-z']+\"\n\npoems &lt;- poems |&gt;\n  mutate(\n    \n    punctuation_count = str_count(text, \"[[:punct:]]\"),\n    mentions_death = str_detect(str_to_lower(text), death_regexp),\n    years_found = str_extract_all(text, year_regexp),\n    after_word_my_regexp = str_extract(text, after_word_my_regexp)\n          \n  )\n\npoems |&gt; select(poem_id, n_lines, punctuation_count, mentions_death, years_found, after_word_my_regexp) |&gt; head(10)\n\n# A tibble: 10 × 6\n   poem_id           n_lines punctuation_count mentions_death years_found\n   &lt;chr&gt;               &lt;int&gt;             &lt;int&gt; &lt;lgl&gt;          &lt;list&gt;     \n 1 gutenberg1.txt001      26                26 FALSE          &lt;chr [0]&gt;  \n 2 gutenberg1.txt002      15                13 FALSE          &lt;chr [0]&gt;  \n 3 gutenberg1.txt003      17                10 FALSE          &lt;chr [0]&gt;  \n 4 gutenberg1.txt004      28                35 TRUE           &lt;chr [0]&gt;  \n 5 gutenberg1.txt005      25                24 FALSE          &lt;chr [0]&gt;  \n 6 gutenberg1.txt006      13                 7 FALSE          &lt;chr [0]&gt;  \n 7 gutenberg1.txt007      17                10 FALSE          &lt;chr [0]&gt;  \n 8 gutenberg1.txt008      20                16 TRUE           &lt;chr [0]&gt;  \n 9 gutenberg1.txt009      15                11 TRUE           &lt;chr [0]&gt;  \n10 gutenberg1.txt010      42                30 FALSE          &lt;chr [0]&gt;  \n# ℹ 1 more variable: after_word_my_regexp &lt;chr&gt;\n\n\nThe above tibble is a sliced set of the poems dataframe, showing the first 10 poems after the text processing. Each row represents a single poem, identified by its poem ID. For the columns, poem_id is the unique identifier for each poem, n_lines the total number of lines in that poem, punctuation_count is the total number of punctuation marks in the poem (Dickinson used many punctuations in writing, especially dashes– I didn’t know how to specify the em-dash in r so I just did all punctuation), mentions_death is a Boolean that returns whether or not the poem contains death-related words (which I interpreted in death_regexp), years_found is a list containing any four-digit year-like patterns in the poem, and after_word_my_rgexp is the first word that follows “poem” in each poem, if present (using look behind, as Dickinson’s poems were often personal and invoked a lot of first-person pronouns)."
+  },
+  {
+    "objectID": "Dickinson.html#plot-1-most-frequent-words",
+    "href": "Dickinson.html#plot-1-most-frequent-words",
+    "title": "Emily Dickinson Poems",
+    "section": "Plot 1 – Most Frequent Words",
+    "text": "Plot 1 – Most Frequent Words\n\nmost_used_words &lt;- tokenize |&gt;\n  count(words, sort = TRUE) |&gt;\n  slice_head(n = 10)\n\nmost_used_words |&gt;\n  ggplot(aes(x = reorder(words, n), y = n)) +\n  geom_col(fill = \"cornflowerblue\") +\n  geom_text(aes(label = n),\n            size = 3) +\n  coord_flip() +\n  labs(\n    title = \"Top 10 Most Frequent Words in Emily Dickinson’s Poems\",\n    x = \"Word\",\n    y = \"Number of Times Used\"\n  ) +\n  theme_light()\n\n\n\n\n\n\n\n\nThe above plot is a horizontal bar graph that shows the top 10 most frequent words in Emily Dickinson’s Poems. “The” is the most frequent word, with 1878 uses, followed by “a” and “and” with 775 and 767 uses respectively. Next, “to” is listed at 656 observations. It’s interesting to note that the next most used word, “I”, is a pronoun, and the only pronoun on the top 10. With 615 uses, it shows that most of Dickinson’s poems are written from first-person perspective or express personal thought and feeling. The rest of the top 10 is “of”, “it”, “in”, “that”, and “is”, with 543, 371, 357, 354, and 329 uses. The list reflects an analysis made by the Oxford English Corpus of the 100 most common words in written English, with 8 of the 10 of Dickinson’s most used words (only is and it are not in the top 10) being in the top 10, and only 1 (is) not being in the top 100. Dickinson, despite her unconventional punctuation and themes, still drew from everyday common English. Her uniqueness and innovation is not in her word choice, but rather her arrangement of words to create a complex story– a poem. Her poetry is accessible, as it uses familiar words, yet is profoundly layered as she explores her own emotions, thoughts, and existential reflections."
+  },
+  {
+    "objectID": "Dickinson.html#poem-length-vs.-punctuation-count",
+    "href": "Dickinson.html#poem-length-vs.-punctuation-count",
+    "title": "Emily Dickinson Poems",
+    "section": "Poem Length vs. Punctuation Count",
+    "text": "Poem Length vs. Punctuation Count\n\nggplot(poems, aes(x = n_lines, y = punctuation_count)) +\n  geom_point(alpha = 0.5, color = \"seagreen1\") +\n  geom_smooth(method = \"lm\", se = FALSE, color = \"black\") +\n  labs(\n    title = \"Correlation Between Poem Length and Punctuation Count\",\n    x = \"Number of Lines in Poem\",\n    y = \"Frequency of Punctuation(s)\"\n  ) +\n  theme_light()\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe above plot is scatter plot that displays the correlation between poem length and punctuation count. In theory, the more lines in a poem, the greater the frequency of punctuation. I decided to use a linear model (method = “lm”) as I believed that the number of lines in a poem should function as a direct explanation for the punctuation count in Dickinson’s poems. While the regression line shows a general upward trend, the data points reveal considerable variation, especially as poem length increases. Most frequently, the longer the poem, Dickinson will use more punctuation than the model predicts she would use. The variation could reflect her unconventional approach to grammar and poetic rhythm, which serve stylistically to contribute to the poem’s tone and emotion. Punctuation in a Dickinson work is not merely just a structural device, but a deliberate choice that reflects the aesthetic and elasticity of her poetry."
+  },
+  {
+    "objectID": "Dickinson.html#narrative",
+    "href": "Dickinson.html#narrative",
+    "title": "Emily Dickinson Poems",
+    "section": "Narrative",
+    "text": "Narrative\nIn completing this project, I wanted to have a better understanding of Emily Dickinson’s poetic style through a computational lens. While her writing is intensely emotional and personal, known for its introspection and peculiar use of punctuation, it also displays a structural consistency with recurring themes. I wondered if these qualities could be reflected quantitatively through text analysis. By counting word frequency, I was able to explore Dickinson’s vocabulary– interestingly, the most common words in her poetry are simple, everyday English words like “the”, “a”, and “and”. It suggests to me that rather than complex diction, Dickinson’s poetry’s power comes from how she arranges her work to express profound meaning. The presence of “I” supports a common interpretation that her work is self-reflective and personal.\nThe regular expressions I designed further support my question. I tried to detect text from poems which reference words related to death, one of Dickinson’s most enduring themes, and extracted any year-like numbers that might situate her work temporally or support the theme of death and ending. By identifying words that followed “my”, I tried to trace personal/possessive language– all these textual patterns tell the story of how Emily Dickinson engaged with mortality, memory, limit, and subjectivity in her work."
   }
 ]
