@@ -22,7 +22,7 @@ website:
       - href: Dickinson.html
         text: Proj. 2 (Full Text Analysis)
         
-      - href: AnimalCrossing.qmd
+      - href: AnimalCrossing.html
         text: Proj. 3 (Permutation Test)
         
       - href: p1.html
