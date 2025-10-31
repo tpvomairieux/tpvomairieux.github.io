@@ -10,9 +10,6 @@ website:
       left:
       - href: index.qmd
         text: Home
-        
-      - href: p1.html
-        text: Piano Sample
 
       - text: Proj. 1 (Data Viz)
         menu:
@@ -27,6 +24,9 @@ website:
         
       - href: AnimalCrossing.html
         text: Proj. 3 (Permutation Test)
+        
+      - href: p1.html
+        text: Piano Sample
             
 format:
   html:
