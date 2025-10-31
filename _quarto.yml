@@ -24,6 +24,9 @@ website:
       
       - href: Dickinson.html
         text: Proj. 2 (Full Text Analysis)
+        
+      - href: AnimalCrossing.html
+        text: Proj. 3 (Permutation Test)
             
 format:
   html:
