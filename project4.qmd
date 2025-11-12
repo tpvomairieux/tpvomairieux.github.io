@@ -1,5 +1,5 @@
 ---
-title: "Cheater Buster"
+title: "Dating Data"
 description: |
   The Ethical Dilemmas of Personal Data Scraping
 author: Phu Vo
@@ -7,4 +7,34 @@ date: November 12, 2025
 format: html
 ---
 
-## Introduction
+## Introduction and Scenario
+
+text
+
+## Permission and Consent Structure
+
+text
+
+## Data Collection and Ethics
+
+text
+
+
+## Identifiable Data and Anonymization
+
+text
+
+## Unintended Uses
+
+text
+
+
+## Why Care?
+
+text
+
+## References
+
+text
+
+
