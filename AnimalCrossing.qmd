@@ -29,7 +29,6 @@ The data for the information about villagers comes from the TidyTuesday Animal C
 library(tidyverse)
 ```
 
-
 ```{r}
 #| include: false
 
@@ -38,7 +37,6 @@ library(tidyverse)
 villagers_data <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/villagers.csv')
 
 ```
-
 
 ```{r}
 #| include: false
@@ -65,7 +63,6 @@ villagers |> count(birth_half, personality) |> arrange(personality)
 villagers |> summarize(n_total = n(), n_missing_birth = sum(is.na(birth_half)))
 
 ```
-
 
 ```{r}
 #| echo: true
@@ -128,6 +125,7 @@ p_value <- mean(abs(permutation_diff) >= abs(observed_diff))
 p_value
 
 ```
+
 ```{r}
 #| echo: true
 
@@ -150,7 +148,7 @@ cranky_proportion |>
 
 ```
 
-This bar chart shows the observed proportions of crankiness into two bins (Jan.-June births and July-Dec. births), which showed a difference of around 7.5 percentage points in proportion of crankiness in the villagers. Villagers born in the first half of the year have about 10% of their population having a cranky personality, while in the latter half of the year this proportion is around 17.5%. 
+This bar chart shows the observed proportions of crankiness into two bins (Jan.-June births and July-Dec. births), which showed a difference of around 7.5 percentage points in proportion of crankiness in the villagers. Villagers born in the first half of the year have about 10% of their population having a cranky personality, while in the latter half of the year this proportion is around 17.5%.
 
 ```{r}
 #| echo: true
@@ -167,10 +165,11 @@ tibble(diff = permutation_diff) |>
   theme_light()
 
 ```
-This histogram displays the permutation distribution of proportion differences under the null hypothesis, with the vertical line marking the observed difference. The plot shows that the observed value lies at the edge of the simulated distribution, rather than at a 0.00 permuted difference, which provides visual evidence against the null hypothesis. 
 
-## Simulation Details (cont.) (What I did, Results Summary)   
+This histogram displays the permutation distribution of proportion differences under the null hypothesis, with the vertical line marking the observed difference. The plot shows that the observed value lies at the edge of the simulated distribution, rather than at a 0.00 permuted difference, which provides visual evidence against the null hypothesis.
 
-In this simulation, I performed a permutation test to evaluate whether villagers born in the first half of the year (January–June) were more or less likely to be cranky than those born in the latter half (July–December). After categorizing villagers by their birth month and calculating the observed difference in proportions, I found that the proportion of cranky villagers was higher in the July–December group. The observed difference was approximately −0.0749, meaning the first-half group had about roughly 7.49% fewer cranky villagers on average. To test whether this difference could have arisen by chance, I simulated the null hypothesis by randomly shuffling the birth-half labels 1,000 times using my function one_permutation(), applied through map_dbl(). This generated a null distribution of differences assuming no true association between birth month and personality. The observed difference fell in the tail of this distribution, corresponding to an empirical p-value of approximately 0.039, and as 0.039 < 0.05, it suggests the result is statistically significant at the 95% confidence level.
+## Simulation Details (cont.) (What I did, Results Summary)
+
+In this simulation, I performed a permutation test to evaluate whether villagers born in the first half of the year (January–June) were more or less likely to be cranky than those born in the latter half (July–December). After categorizing villagers by their birth month and calculating the observed difference in proportions, I found that the proportion of cranky villagers was higher in the July–December group. The observed difference was approximately −0.0749, meaning the first-half group had about roughly 7.49% fewer cranky villagers on average. To test whether this difference could have arisen by chance, I simulated the null hypothesis by randomly shuffling the birth-half labels 1,000 times using my function one_permutation(), applied through map_dbl(). This generated a null distribution of differences assuming no true association between birth month and personality. The observed difference fell in the tail of this distribution, corresponding to an empirical p-value of approximately 0.039, and as 0.039 \< 0.05, it suggests the result is statistically significant at the 95% confidence level.
 
 Overall, the simulation supports the hypothesis that villagers born in the latter half of the year are slightly more likely to be cranky-- we should reject Ho, as villagers born from July onwards are more likely to be cranky compared to their earlier born counterparts. Permutation testing can be used to assess non-parametric relationships between categorical variables, and in this case, it appears that people born July and afterwards are indeed more upset than those born from January thru. June ;).

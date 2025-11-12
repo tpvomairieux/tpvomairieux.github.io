@@ -1,0 +1,10 @@
+---
+title: "Cheater Buster"
+description: |
+  The Ethical Dilemmas of Personal Data Scraping
+author: Phu Vo
+date: November 12, 2025
+format: html
+---
+
+## Introduction

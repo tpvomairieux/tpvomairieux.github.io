@@ -25,6 +25,9 @@ website:
       - href: AnimalCrossing.html
         text: Proj. 3 (Permutation Test)
         
+      - href: project4.html
+        text: Proj. 4 (Ethics of Data Science)
+        
       - href: p1.html
         text: Piano Sample
             
