@@ -9,32 +9,64 @@ format: html
 
 ## Introduction and Scenario
 
-text
+In 2015, data scientists Albert Y. Kim and Adriana Escobedo-Land released a dataset of 59,946 collected San Francisco OkCupid users from a period in the 2010s. Their goal was to provide a real example of a complex datasetfor undergraduat students in introductory statistics and data-science classes to practice modeling, visualization, and text analysis in R (Kim & Escobedo-Land, 2015). The dataset included demographic variables, such as age, gender, height, religion, and lifestyle habits, but also personal responses to 10 open-ended essay questions.
 
-## Permission and Consent Structure
+However, in 2021, Tiffany Xiao and Yifan Ma published a letter to the Journal of Statistics and Data Science Education named "A Call for Review of 'OkCupid Data for Introductory Statistics and Data Science Courses' by Albert Y. Kim and Adriana Escobedo-Land." They argued that the dataset violated key ethical principles surrounding consent and personal identification (Xiao & Ma, 2021). Although the researchers had legal permission from OK Cupid to use the data, users were not explicitly informed that their profiles could be made public for the use of research or classroom use– especially for non-users of the dating app. The tension between public data and privacy in life is an example of one of the largest ethical dilemmas in modern data science: just because something is public and accessible, does it mean we can freely use it without restriction? The issue echoes contemporary controversies like the latest Tik Tok trend, Cheater Buster, which from what I've gathered, is an AI site that scrapes names, phone numbers, and faces from dating apps and social media profiles to detect potential cheating/infidelity– which raises similar concerns about digital surveillance and privacy.
 
-text
+Today, by request of the original authors (Kim and Escobedo-Land), the publication has been corrected to further remove potential identifiers of the OkCupid users whose data was used as examples or scraped, while retaining its educational use. Ages were randomized, the data file was renamed, and the open-ended user responses were shuffled around in the 2021 revised edition (Kim & Escobedo-Land, 2021).
 
-## Data Collection and Ethics
+## Permission and Consent Structure (Q1)
 
-text
+Although Kim and Escobedo-Land received explicit permission from OkCupid leadership to use a scraped dataset– permission that technically satisfied the company-to-researcher requirement (Kim & Escobedo-Land, 2015)– this does not resolve the central ethical issue: individual users never consented to having their personal essays, profile details, or demographic information repurposed for public datasets. Users reasonably expect their profiles to be viewed only within the dating platform, not downloaded, scraped, or redistributed for research or teaching.
 
+OkCupid’s Terms of Use reinforce this expectation by prohibiting the use of “any robot \[or\] crawler” to extract data (Sec. 2c) and by stating that Member Content “belongs to the user” and cannot be copied or redistributed outside the service (Sec. 3b). These clauses indicate that automated scraping directly contradicts what users agreed to (OkCupid, 2025). Thus, even with corporate permission, users’ actual consent was never obtained.
 
-## Identifiable Data and Anonymization
+Xiao and Ma argue that this gap between platform approval and user awareness reflects a broader problem: outdated U.S. data laws make legality an unreliable guide for ethical practice (Xiao & Ma, 2021). They emphasize that variables such as essays, demographics, and temporal or geographic markers remain identifiable and require stronger anonymization and more controlled access. The same concerns apply to modern systems like Cheater Buster, which scrape faces and personal details without user consent despite platform prohibitions. Across both cases, the underlying issue is the absence of meaningful, informed permission for intimate data to be used beyond its intended dating context.
 
-text
+## Data Collection and Ethics (Q3)
 
-## Unintended Uses
+Kim and Escobedo-Land provide a clear description of how the OK Cupid dataset was collected (Kim & Escobedo-Land, 2015). The data were obtained by scraping public-facing OK Cupid profiles using a Python script. The authors explain that the dataset consists of “the public profiles of 59,946 OkCupid users who were living within 25 miles of San Francisco, had active profiles during a period in the 2010s, were online in the previous year, and had at least one picture in their profile.” They further note that “any non-publicly facing information such as messaging was not accessible,” confirming that only content visible to any OK Cupid user– or anyone browsing publicly viewable portions of the platform– was collected. The scrape occurred over a four-day window and captured typical demographic information and lifestyle habits. Random noise was added to the age variable as a basic anonymization step.
 
-text
+Whether the observations were collected ethically is more complex. Legally, the profiles were publicly viewable, and OK Cupid gave the authors permission to use the data. Ethically, however, users likely did not expect their dating profiles to be harvested, stored offline, and distributed publicly for teaching or research. Xiao and Ma argue that even when scraping is technically permissible, datasets like this require stronger anonymization because public visibility does not equal informed consent– especially given the intimate nature of dating-profile content (Xiao & Ma, 2021). Their concern is not that the authors acted maliciously, but that relying solely on “public availability” overlooks the privacy expectations of the people represented.
 
+## Identifiable Data and Anonymization (Q5)
+
+The OK Cupid dataset is only partially anonymized, and several components remained potentially identifiable even after initial cleaning. Kim and Escobedo-Land removed usernames and added random noise to the age variable, but they retained free-text profile essays and a number of demographic and lifestyle variables (Kim & Escobedo-Land, 2015) . Xiao and Ma specifically note that the dataset “was found to contain identifiable information” prior to correction, and they highlight several categories of variables that increase the risk of identification: temporal information, geographic information, and rich textual content (Xiao & Ma, 2021).
+
+Some of the data is identifiable because free-response essays can contain unique phrases, personal details, or references that users voluntarily included in their profiles. Even without explicit names, writing style and self-descriptions can function as identifiers, especially when matched against still-public OK Cupid profiles. Xiao and Ma argue that certain variables– such as the time of data collection– had “identification power disproportionate to their value for research,” meaning they made re-identification easier without improving the dataset’s pedagogical usefulness (Xiao & Ma, 2021).
+
+Other variables, such as ethnicity, height, specific lifestyle combinations, and narrow geographic radius (within 25 miles of San Francisco), further increase the potential for triangulation with public profiles. Although these variables are not uniquely identifying on their own, together they create detailed user signatures that could allow motivated actors to match individuals to their online profiles.
+
+As for whether the dataset is sufficiently anonymized or old enough to be free of ethical concerns, Xiao and Ma’s letter suggests the answer is no (Xiao & Ma, 2021). They emphasize that outdated data-privacy laws cannot be relied upon to protect user identity and that additional anonymization steps were needed before public release. Being older does not eliminate risk: user essays and profile characteristics remain linkable if the original OK Cupid profiles– or archived versions– are still accessible.
+
+Anonymity is not guaranteed in this dataset. Rich text data, combined with demographic variables and temporal markers, makes complete de-identification effectively impossible. Xiao and Ma recommend alternative approaches such as removing certain variables altogether or distributing the data through secure channels instead of posting it publicly, underscoring that meaningful anonymity could not be assured with the dataset in its original form (Xiao & Ma, 2021).
+
+## Unintended Uses (Q8)
+
+There is evidence that OK Cupid data has been used in ways far beyond what Kim and Escobedo-Land originally intended (Kim & Escobedo-Land, 2015). Their stated purpose was explicitly pedagogical: the dataset was created for instructional use in introductory statistics and data-science courses. However, Xiao and Ma contextualize the dataset within a broader pattern of unintended and controversial reuse of OK Cupid data over the past decade, citing two specific incidents (Xiao & Ma, 2021).
+
+First, the 2014 case where an individual scraped OK Cupid profiles to analyze and optimize his dating strategy. The legality of his scraping was debated, raising questions about potential violations of the Computer Fraud and Abuse Act (Penenberg, 2014).
+
+Second, the 2016 incident where researchers scraped and publicly posted data from 70,000 OK Cupid users without anonymization, causing widespread public outcry (Hackett, 2016). The researchers argued that their actions were legal because the profiles were publicly visible, but their release was widely condemned as an invasion of privacy.
+
+Xiao and Ma use these examples to show that once dating-profile data is publicly released or publicly accessible, it is highly susceptible to re-purposing beyond its original educational context, regardless of intent (Xiao & Ma, 2021). Their letter makes it clear that relying on legality or “public availability” does not protect individuals from later misuse. Although Kim and Escobedo-Land did not encourage disruptive reuse, publicly releasing the dataset created the possibility of the same kind of function creep that occurred in 2014 and 2016. This includes the potential for re-identification, surveillance, analytical uses unrelated to teaching, or aggregation with other datasets. Xiao and Ma’s recommendation to remove certain variables or distribute the data through secure channels reflects their concern that once data is public, its uses can no longer be controlled. In this way, the OK Cupid dataset fits a broader pattern– dating-app data often ends up being used in ways far beyond what data subjects, or even researchers, originally envisioned.
 
 ## Why Care?
 
-text
+The issues raised in the OkCupid dataset and in modern scraping tools like Cheater Buster matter because they reveal a structural imbalance in who benefits from data extraction and who bears the risks. Researchers and developers gain access to detailed datasets that can be used to train AI, improve products, or for academic purposes. However, the users whose data makes this possible does not benefit, and often doesn't even have the knowledge that their information, sometimes intimate, has been re-purposed, or shared around. This could cause reputational harm (imagine a fake tinder profile someone made of you and your insecure S.O. found you on Cheater Buster), or the loss of control over personal narratives that they originally shared only for dating purposes.
+
+Those most harmed tend to be individuals who already experience disproportionate risks online: LGBTQ+ users, people of color, and anyone who shares sensitive information in essays or photographs. These groups may be more easily identifiable due to facial features, mannerisms, or writing style, and the public release of such data heightens the risk of doxxing, harassment, or unwanted exposure. Meanwhile, the ones who scrape or redistribute their data face little to no consequences, in part because outdated U.S. privacy laws do not clearly regulate the repurposing of publicly viewable online information (Xiao & Ma, 2021).
+
+The motivations behind such ethical violations often combine multiple forces. In the OkCupid case, the release was not driven by direct profit, but by academic convenience and the desire for a compelling dataset. In contrast, tools like Cheater Buster operate within an economy of surveillance– users can stalk others under the guise of transparency, accountability, or relationship protection. Whether for research credibility, product differentiation, or monetizing suspicion, these systems leverage personal data in ways that prioritize commercial benefit over individual privacy. Platforms and data collectors possess the technological and legal capacity to extract and repurpose user data, while individuals have limited awareness and even less control. Ensuring meaningful consent, limiting identifiability, and preventing unintended uses are essential steps toward restoring that balance and protecting demographics most affected by these decisions.
 
 ## References
 
-text
+Hackett, R. (2016). Researchers caused an uproar by publishing data from 70,000 okcupid users. *Fortune*.
 
+Kim, A. Y., & Escobedo-Land, A. (2015). OkCupid data for introductory statistics and data science courses. *Journal of Statistics Education*, *23*(2).
 
+Penenberg, A. L. (2014). Did the mathematician who hacked OkCupid violate federal computer laws?. *Pando Daily. URL: http://pando. com/2014/01/22/did-the-mathematician-who-hacked-okcupid-violate-federalcomputer-laws/.*
+
+Terms of Service. (2025). Retrieved November 11, 2025, from OkCupid, OkCupid Terms & Conditions Website, https://okcupid-app.zendesk.com/hc/en-us/articles/23941864418203-Terms-Conditions.
+
+Xiao, T., & Ma, Y. (2021). A letter to the Journal of Statistics and Data Science Education– a call for review of “OkCupid data for introductory statistics and data science courses” by Albert Y. Kim and Adriana Escobedo-Land. *Journal of Statistics and Data Science Education*, *29*(2), 214-215.
