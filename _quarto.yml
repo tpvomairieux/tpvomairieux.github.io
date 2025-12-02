@@ -28,6 +28,9 @@ website:
       - href: project4.html
         text: Proj. 4 (Ethics of Data Science)
         
+      - href: project5.html
+        text: Proj. 5 (SQL)
+        
       - href: p1.html
         text: Piano Sample
             

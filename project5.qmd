@@ -1,0 +1,194 @@
+---
+title: "Racial Differences in Traffic-Stop Search Rates across Nebraska, Masaschusetts, and Virginia"
+description: |
+  SQL
+author: Phu Vo
+date: December 1, 2025
+format: html
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+
+```
+
+```{r}
+#| echo: false
+
+con_traffic <- DBI::dbConnect(
+  RMariaDB::MariaDB(),
+  dbname = "traffic",
+  host = Sys.getenv("TRAFFIC_HOST"),
+  user = Sys.getenv("TRAFFIC_USER"),
+  password = Sys.getenv("TRAFFIC_PWD")
+)
+
+```
+
+```{r}
+#| echo: false
+
+DBI::dbIsValid(con_traffic)
+
+DBI::dbListTables(con_traffic)
+
+```
+
+```{sql, connection=con_traffic}
+
+DESCRIBE ne_statewide_2020_04_01;
+
+```
+
+```{sql, connection=con_traffic}
+
+DESCRIBE ma_statewide_2020_04_01;
+
+```
+
+```{sql, connection=con_traffic}
+
+
+DESCRIBE va_statewide_2020_04_01;
+
+```
+
+## Introduction
+
+For this week's project, I wanted to examine the racial differences in traffic-stop search rates across Nebraska, Massachusetts, and Virginia using our given database, Stanford's Open Policing Project. The reason why I chose these states were because I've lived in them, and they also happen to be vastly politically different from each other, so I thought it could be interesting. The first state I immigrated to when I came to the U.S. was Nebraska, then I lived in Boston, MA for a bit, before settling down in VA for high school and most of my middle school years. Nebraska is a state that is very red, Massachusetts is a state that is very blue, and Virginia is a swing state, so I thought that maybe there would be a correlation between the proportion of searches conducted to the race of the driver. After using DESCRIBE on all 3 of the statewide tables, I found out that there were enough consistent variable sets (subject race, search conducted, and date) which would allow me to combine the data with union. Below, I'll have created a unified dataset that summarizes search behavior by race and year for each state-- with my primary goal being to determine whether or not search rates differ by racial group, how the differences vary across states, and whether or not they change over time (for example, Virginia goes pretty back and forth every year between R and D, and Nebraska's 2nd district swings R and D a lot as well).
+
+## Code
+
+```{sql, connection=con_traffic, output.var="ne_race_2015"}
+
+SELECT
+  'Nebraska' AS state,
+  subject_race,
+  type,
+  COUNT(*) AS total_stops,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) AS searches,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) / COUNT(*) AS search_rate
+FROM ne_statewide_2020_04_01
+WHERE `date` LIKE '2015%'
+  AND subject_race IS NOT NULL
+GROUP BY subject_race, type
+HAVING COUNT(*) >= 100
+ORDER BY subject_race, type;
+
+```
+
+```{sql, connection=con_traffic, output.var="ma_race_2015"}
+
+SELECT
+  'Massachusetts' AS state,
+  subject_race,
+  type,
+  COUNT(*) AS total_stops,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) AS searches,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) / COUNT(*) AS search_rate
+FROM ma_statewide_2020_04_01
+WHERE `date` LIKE '2015%'
+  AND subject_race IS NOT NULL
+GROUP BY subject_race, type
+HAVING COUNT(*) >= 100
+ORDER BY subject_race, type;
+
+```
+
+```{sql, connection=con_traffic, output.var="va_race_2015"}
+
+
+SELECT
+  'Virginia' AS state,
+  subject_race,
+  type,
+  COUNT(*) AS total_stops,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) AS searches,
+  SUM(CASE WHEN search_conducted = 1 THEN 1 ELSE 0 END) / COUNT(*) AS search_rate
+FROM va_statewide_2020_04_01
+WHERE `date` LIKE '2015%'
+  AND subject_race IS NOT NULL
+GROUP BY subject_race, type
+HAVING COUNT(*) >= 100
+ORDER BY subject_race, type;
+
+```
+
+
+```{r}
+
+#| echo: true
+
+state_race_2015 <- bind_rows(
+  ne_race_2015,
+  ma_race_2015,
+  va_race_2015
+)
+
+state_race_2015
+
+
+race_summary_2015 <- state_race_2015 |>
+  group_by(state, subject_race) |>
+  summarize(
+    total_stops    = sum(total_stops),
+    total_searches = sum(searches),
+    overall_search_rate = total_searches / total_stops,
+    .groups = "drop"
+  )
+
+race_summary_2015
+
+```
+
+
+```{r}
+
+#| echo: true
+
+ggplot(race_summary_2015,
+       aes(x = subject_race, y = overall_search_rate, fill = state)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous(labels = function(x) paste0(round(100 * x, 1), "%")) +
+  labs(
+    title = "Search Rates by Driver Race in 2015",
+    x = "Driver's Race",
+    y = "Search Rate (% of stops with a search)",
+    fill = "State"
+  ) +
+  theme_light()
+
+```
+This bar graph displays the search rate, or the % of stops that resulted in a search, for racial groups across Nebraska, Massachusetts, and Virginia in 2015. From the graph, I can see some patterns emerging-- dirvers of color would experiecne the highest search rates, with black drivers in NE, and hispanic drivers in MA and VA. Originally, when I looked at the graphs, and saw that NE searched the highest % of black and hispanic drivers, I went, "of course the republican state," but, looking more closely, they just search way more in general compared to the other two states, so I'll definitely have to look more into it to draw conclusions. However, overall, the differences indicate that, once stopped, drivers of different racial groups do not face the same likelihood of being searched. The consistency of this pattern across three states suggests that disparities in post-stop treatment are not isolated to a single jurisdiction but it could reflect broader systemic practices. 
+
+
+```{r}
+
+ggplot(race_summary_2015,
+       aes(x = subject_race, y = total_stops, fill = state)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous(labels = function(x) format(x, big.mark = ",")) +
+  labs(
+    title = "Total Traffic Stops by Driver Race in 2015",
+    x = "Driver's Race",
+    y = "Number of Stops",
+    fill = "State"
+  ) +
+  theme_light()
+
+```
+
+This bar chart helps us show the total number of traffic stops by race in NE, MA, and VA during 2015. The plot highlights substantial differences in stop volume across racial groups. In each state, white drivers make up the majority of the stops, which makes sense because the U.S. is a country with a white majority population. By contrast, Black, Hispanic, Asian/Pacific Islander, and “Other” and "Unknown" categories represent much smaller portions of overall stop counts. These differences in stop volume help contextualize the search rates observed in the first figure. Even though white drivers have relatively low search rates, their large number of total stops means they account for a high absolute number of searches. Racial groups with higher search rates may have far fewer total stops but still experience disproportionately high search likelihoods once stopped.
+
+
+## Concluding Thoughts
+
+So I deviated a bit from my original plan because of some logistical issues. When I ran the code I wanted to run to union all of the 3 tables across the years from 2011 all the way through 2015, it actually move at a dinosaur pace. Like I wasted 45 minutes of my life running that chunk, and I wasn't going to sit there and wait for that to run each time I was debugging my r-code for the graphs later on. So, I decided to limit my work to the most recent year (2015) and also got rid of all the whitespace in my work for the SQL section (sorry for the bad syntax) so I could maximize the optimization possible for the code.I then made the sql tables into an output variable, and joined them together with rbind() rather than union. For the graphs, I couldn't make them proportionally adjusted as well because I would need the number of people of each race in the state, the number of licensed drivers by race, and none of those variables were all shared equally among the SQL tables, if they even were available. So, my two plots of stop volume and search rate conditional on being stopped were the graphical analyses I went with -- if I were to look into this more in the future, I'd look into interpreting search rates only within the population of stopped drivers, because mine currently only answers "given that a driver was stopped, what is the probability they were searched."
+
+All in all, the results show clear racial differences in both the likelihood of being searched during a traffic stop and the volume of stops across three states. While white drivers make up the majority of stops in Nebraska, Massachusetts, and Virginia, Black and Hispanic drivers consistently face higher search rates once stopped, indicating disparities in post-stop treatment rather than in stop frequency alone. Because the Stanford Open Policing Project does not provide population denominators or licensed-driver demographics, the findings reflect conditional outcomes (what happens ONCE someone is stopped?) rather than per-capita policing rates. Nonetheless, I believe that the consistency of the pattern across multiple states suggests that racial disparities in search practices are systemic rather than isolated. It's important continue transparency and standarized data collection as we continue our public oversight in policing.
+
+## Citations
+
+The data used in my project comes from the Stanford Open Policing Project, which was original assembled and released as a part of Pierson et Al.'s work in "A large-scale analysis of racial disparities in police stops across the United States." I'll leave the link to that [here](https://5harad.com/papers/100M-stops.pdf).We can access the data through Stanford's public data portal at the following link: [https://openpolicing.stanford.edu/](https://openpolicing.stanford.edu/). 
