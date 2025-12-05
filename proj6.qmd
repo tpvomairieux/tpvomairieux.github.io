@@ -1,0 +1,193 @@
+---
+title: "Website Presentation"
+author: "Phu Vo"
+subtitle: "December 5, 2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Introduction
+
+**Quantifying Emily Dickinson’s Poetry**
+
+- Full-text analysis of all poems from the DickinsonPoems R package  
+- Goal: identify stylistic patterns using text processing and regular expressions  
+- Focus areas:
+  - Vocabulary patterns
+  - Punctuation behavior
+  - Death-related expressions
+  - Personal language (“my …”)
+
+This analysis studies how Dickinson writes across her entire body of work, rather than interpreting individual poems.
+
+---
+
+## Original Analysis
+
+### Version 1 Overview
+- Used regular expressions to extract:
+  - Death-related vocabulary
+  - Year-like numbers (four digits)
+  - Words following “my” through lookbehind
+- Plotted:
+  - Most frequent word counts
+  - Relationship between poem length and punctuation count
+  
+---
+
+### Original Code
+
+```{r}
+#| echo: false
+
+library(knitr)
+
+knitr::include_graphics("media/ogtokenize.png")
+
+```
+
+---
+
+### Limitations
+- Raw frequency reflected common English usage rather than poetic style  
+- Contractions created fragmented tokens (e.g., isolated letters from “don’t”)  
+- Stop words dominated results, masking meaningful language patterns
+
+The original analysis measured language structure rather than poetic meaning.
+
+
+---
+
+### Original Output
+
+```{r}
+#| echo: false
+#| 
+knitr::include_graphics("media/ogresult.png")
+
+```
+
+---
+
+## New Analysis
+
+### Refinements in Version 2
+- Cleaned text by removing:
+  - Contractions
+  - Apostrophes and possessive endings
+  - One-letter fragments
+- Removed stop words such as common pronouns, articles, and auxiliary verbs
+- Focused on meaningful tokens with semantic weight
+
+---
+
+### Updated Code
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("media/newcode.png")
+
+```
+
+---
+
+### Key Findings
+
+The most frequent words after filtering are small, transitional, and suggestive:
+
+- little
+- will
+- till
+- away
+- day
+- life
+
+These words emphasize boundaries, anticipation, and measurement.
+
+---
+
+### New Output
+
+```{r}
+#| echo: false
+
+
+knitr::include_graphics("media/newoutputd.png")
+
+```
+
+---
+
+## Semantic Interpretation
+
+### Poetic Functions of Common Words
+
+| Word | Function |
+|------|----------|
+| little | Attention to smallness, precision, measured perception |
+| day / life | Boundaries, duration, temporal framing |
+| till / will | Anticipation, incompleteness, deferred action |
+| away | Distance, separation, loss, withdrawal |
+
+Dickinson creates intensity not through elaborate vocabulary, but through partial states and restricted language. She builds meaning by holding back, delaying, or measuring experience.
+
+---
+
+## Punctuation Analysis
+
+### Poem Length and Punctuation Frequency
+
+Observations:
+- Longer poems generally contain more punctuation
+- However, there is significant variation beyond the predicted trend
+
+Punctuation functions stylistically rather than mechanically. In many poems, punctuation marks (particularly dashes) serve as rhythmic and expressive devices that shape hesitation, emphasis, and tone.
+
+---
+
+### Original Code
+
+```{r}
+#| echo: false
+
+knitr::include_graphics("media/codepunc.png")
+
+```
+---
+
+### Output
+
+```{r}
+#| echo: false
+
+library(knitr)
+
+knitr::include_graphics("media/newoutputpunc.png")
+
+```
+
+---
+
+## Future Work
+
+Possible extensions of this analysis include:
+
+- Separate classification of em dashes distinct from other punctuation
+- Topic modeling to group poems by thematic patterns such as death, nature, faith, or memory
+- Sentiment analysis across lines to measure emotional movement within poems
+- Temporal comparison of early and late poems to detect stylistic changes
+
+These approaches would support a deeper computational interpretation of Dickinson’s writing.
+
+---
+
+## Thank You!

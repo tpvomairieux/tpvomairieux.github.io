@@ -278,5 +278,68 @@
     "title": "Racial Differences in Traffic-Stop Search Rates across Nebraska, Masaschusetts, and Virginia",
     "section": "Citations",
     "text": "Citations\nThe data used in my project comes from the Stanford Open Policing Project, which was original assembled and released as a part of Pierson et Al.’s work in “A large-scale analysis of racial disparities in police stops across the United States.” I’ll leave the link to that here.We can access the data through Stanford’s public data portal at the following link: https://openpolicing.stanford.edu/."
+  },
+  {
+    "objectID": "proj6.html#website-overview",
+    "href": "proj6.html#website-overview",
+    "title": "Website Presentation",
+    "section": "Website Overview",
+    "text": "Website Overview\nThis is a sample sentence."
+  },
+  {
+    "objectID": "proj6.html",
+    "href": "proj6.html",
+    "title": "Website Presentation",
+    "section": "",
+    "text": "This is a sample sentence."
+  },
+  {
+    "objectID": "proj6.html#introduction",
+    "href": "proj6.html#introduction",
+    "title": "Website Presentation",
+    "section": "Introduction",
+    "text": "Introduction\nQuantifying Emily Dickinson’s Poetry\n\nFull-text analysis of all poems from the DickinsonPoems R package\n\nGoal: identify stylistic patterns using text processing and regular expressions\n\nFocus areas:\n\nVocabulary patterns\nPunctuation behavior\nDeath-related expressions\nPersonal language (“my …”)\n\n\nThis analysis studies how Dickinson writes across her entire body of work, rather than interpreting individual poems."
+  },
+  {
+    "objectID": "proj6.html#original-analysis",
+    "href": "proj6.html#original-analysis",
+    "title": "Website Presentation",
+    "section": "Original Analysis",
+    "text": "Original Analysis\nVersion 1 Overview\n\nUsed regular expressions to extract:\n\nDeath-related vocabulary\nYear-like numbers (four digits)\nWords following “my” through lookbehind\n\nPlotted:\n\nMost frequent word counts\nRelationship between poem length and punctuation count"
+  },
+  {
+    "objectID": "proj6.html#new-analysis",
+    "href": "proj6.html#new-analysis",
+    "title": "Website Presentation",
+    "section": "New Analysis",
+    "text": "New Analysis\nRefinements in Version 2\n\nCleaned text by removing:\n\nContractions\nApostrophes and possessive endings\nOne-letter fragments\n\nRemoved stop words such as common pronouns, articles, and auxiliary verbs\nFocused on meaningful tokens with semantic weight"
+  },
+  {
+    "objectID": "proj6.html#semantic-interpretation",
+    "href": "proj6.html#semantic-interpretation",
+    "title": "Website Presentation",
+    "section": "Semantic Interpretation",
+    "text": "Semantic Interpretation\nPoetic Functions of Common Words\n\n\n\nWord\nFunction\n\n\n\n\nlittle\nAttention to smallness, precision, measured perception\n\n\nday / life\nBoundaries, duration, temporal framing\n\n\ntill / will\nAnticipation, incompleteness, deferred action\n\n\naway\nDistance, separation, loss, withdrawal\n\n\n\nDickinson creates intensity not through elaborate vocabulary, but through partial states and restricted language. She builds meaning by holding back, delaying, or measuring experience."
+  },
+  {
+    "objectID": "proj6.html#punctuation-analysis",
+    "href": "proj6.html#punctuation-analysis",
+    "title": "Website Presentation",
+    "section": "Punctuation Analysis",
+    "text": "Punctuation Analysis\nPoem Length and Punctuation Frequency\nObservations: - Longer poems generally contain more punctuation - However, there is significant variation beyond the predicted trend\nPunctuation functions stylistically rather than mechanically. In many poems, punctuation marks (particularly dashes) serve as rhythmic and expressive devices that shape hesitation, emphasis, and tone."
+  },
+  {
+    "objectID": "proj6.html#future-work",
+    "href": "proj6.html#future-work",
+    "title": "Website Presentation",
+    "section": "Future Work",
+    "text": "Future Work\nPossible extensions of this analysis include:\n\nSeparate classification of em dashes distinct from other punctuation\nTopic modeling to group poems by thematic patterns such as death, nature, faith, or memory\nSentiment analysis across lines to measure emotional movement within poems\nTemporal comparison of early and late poems to detect stylistic changes\n\nThese approaches would support a deeper computational interpretation of Dickinson’s writing."
+  },
+  {
+    "objectID": "proj6.html#closing",
+    "href": "proj6.html#closing",
+    "title": "Website Presentation",
+    "section": "Closing",
+    "text": "Closing\nEmily Dickinson’s poetry shows that expressive force can emerge from small words, restraint, and punctuation. Her style depends not on complex language, but on how fragments, pauses, and concise terms carry emotional and philosophical weight.\nThank you."
   }
 ]

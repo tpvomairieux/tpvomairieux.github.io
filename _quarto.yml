@@ -10,6 +10,9 @@ website:
       left:
       - href: index.qmd
         text: Home
+        
+      - href: proj6.html
+        text: Final Presentation
 
       - text: Data Visualization
         menu:
