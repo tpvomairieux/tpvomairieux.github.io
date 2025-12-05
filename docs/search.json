@@ -291,49 +291,49 @@
     "href": "proj6.html",
     "title": "Website Presentation",
     "section": "",
-    "text": "This is a sample sentence."
+    "text": "Quantifying Emily Dickinson’s Poetry\n\nFull-text analysis of all poems from the DickinsonPoems R package\n\nTry and identify characteristics of Dickinson’s writing through regex & text processing.\nFocuses:\n\nVocabulary Patterns\nPunctuation Behavior\nMotifs (ex: death, nature, time)\nPersonal language (“my ___, I”)\n\nAim to study how Dickinson writes across her entire body of work, rather than attempt to interpret individual poems."
   },
   {
     "objectID": "proj6.html#introduction",
     "href": "proj6.html#introduction",
     "title": "Website Presentation",
-    "section": "Introduction",
-    "text": "Introduction\nQuantifying Emily Dickinson’s Poetry\n\nFull-text analysis of all poems from the DickinsonPoems R package\n\nGoal: identify stylistic patterns using text processing and regular expressions\n\nFocus areas:\n\nVocabulary patterns\nPunctuation behavior\nDeath-related expressions\nPersonal language (“my …”)\n\n\nThis analysis studies how Dickinson writes across her entire body of work, rather than interpreting individual poems."
+    "section": "",
+    "text": "Quantifying Emily Dickinson’s Poetry\n\nFull-text analysis of all poems from the DickinsonPoems R package\n\nTry and identify characteristics of Dickinson’s writing through regex & text processing.\nFocuses:\n\nVocabulary Patterns\nPunctuation Behavior\nMotifs (ex: death, nature, time)\nPersonal language (“my ___, I”)\n\nAim to study how Dickinson writes across her entire body of work, rather than attempt to interpret individual poems."
   },
   {
     "objectID": "proj6.html#original-analysis",
     "href": "proj6.html#original-analysis",
     "title": "Website Presentation",
     "section": "Original Analysis",
-    "text": "Original Analysis\nVersion 1 Overview\n\nUsed regular expressions to extract:\n\nDeath-related vocabulary\nYear-like numbers (four digits)\nWords following “my” through lookbehind\n\nPlotted:\n\nMost frequent word counts\nRelationship between poem length and punctuation count"
+    "text": "Original Analysis\n\nVersion 1 Overview\n\nUsed regular expressions to extract:\n\nDeath-related vocabulary (appears in text 4, 8, 9)\nFour-digit, year like numbers\nWords following “my” through lookbehind (soul, reach)\n\nPlotted:\n\nMost frequent word counts\nRelationship between poem length and punctuation count\n\n\n\n\n\nOriginal Code\n\n\n\n\n\n\n\n\n\n\n\n\nLimitations\n\nRaw frequency reflected common English usage rather than poetic style\n\nContractions created fragmented words (e.g., isolated letters from “don’t”)\n\nStop words dominated results, masking meaningful language patterns\n\nThe original analysis measured language structure rather than poetic meaning.\n\n\n\nOriginal Output"
   },
   {
     "objectID": "proj6.html#new-analysis",
     "href": "proj6.html#new-analysis",
     "title": "Website Presentation",
     "section": "New Analysis",
-    "text": "New Analysis\nRefinements in Version 2\n\nCleaned text by removing:\n\nContractions\nApostrophes and possessive endings\nOne-letter fragments\n\nRemoved stop words such as common pronouns, articles, and auxiliary verbs\nFocused on meaningful tokens with semantic weight"
+    "text": "New Analysis\n\nRefinements in Version 2\n\nCleaned text by removing:\n\nContractions\nApostrophes and possessive endings\nOne-letter fragments (ex: s after it’s, or t after don’t)\n\nRemoved common pronouns, articles, and auxiliary verbs (stop words)\nTry and limit the words down to limited, meaningful text\n\n\n\n\nUpdated Code\n\n\n\n\n\n\n\n\n\n\n\n\nKey Findings\nThe most frequent words after filtering out all stop words involve measurement, especially of time and space:\n\nlittle\nwill\ntill\naway\nday\nlife\n\nThese words emphasize fate (the inevitable), and significance (what matters).\n\n\n\nNew Output"
   },
   {
     "objectID": "proj6.html#semantic-interpretation",
     "href": "proj6.html#semantic-interpretation",
     "title": "Website Presentation",
     "section": "Semantic Interpretation",
-    "text": "Semantic Interpretation\nPoetic Functions of Common Words\n\n\n\nWord\nFunction\n\n\n\n\nlittle\nAttention to smallness, precision, measured perception\n\n\nday / life\nBoundaries, duration, temporal framing\n\n\ntill / will\nAnticipation, incompleteness, deferred action\n\n\naway\nDistance, separation, loss, withdrawal\n\n\n\nDickinson creates intensity not through elaborate vocabulary, but through partial states and restricted language. She builds meaning by holding back, delaying, or measuring experience."
+    "text": "Semantic Interpretation\n\nPoetic Functions of Common Words\n\n\n\n\n\n\n\nWord\nFunction\n\n\n\n\nlittle\nAttention to size and length, precision, measured perception\n\n\nday / life\nBoundaries, duration, temporal framing\n\n\ntill / will\nAnticipation, incompleteness, inevitability, deferred action\n\n\naway\nDistance, separation, loss, withdrawal\n\n\n\nDickinson’s writing is empowered not through elaborate vocabulary, but through framing and restricted language. She builds meaning by holding back, delaying, or measuring experience."
   },
   {
     "objectID": "proj6.html#punctuation-analysis",
     "href": "proj6.html#punctuation-analysis",
     "title": "Website Presentation",
     "section": "Punctuation Analysis",
-    "text": "Punctuation Analysis\nPoem Length and Punctuation Frequency\nObservations: - Longer poems generally contain more punctuation - However, there is significant variation beyond the predicted trend\nPunctuation functions stylistically rather than mechanically. In many poems, punctuation marks (particularly dashes) serve as rhythmic and expressive devices that shape hesitation, emphasis, and tone."
+    "text": "Punctuation Analysis\n\nPoem Length and Punctuation Frequency\nObservations: - Longer poems generally contain more punctuation - However, there is significant variation beyond the predicted trend\nPunctuation functions stylistically rather than mechanically. In many poems, punctuation marks (particularly dashes) serve as rhythmic and expressive devices that shape hesitation, emphasis, and tone.\n\n\n\nOriginal Code\n\n\n\n\n\n\n\n\n\n\n\n\nOutput"
   },
   {
     "objectID": "proj6.html#future-work",
     "href": "proj6.html#future-work",
     "title": "Website Presentation",
     "section": "Future Work",
-    "text": "Future Work\nPossible extensions of this analysis include:\n\nSeparate classification of em dashes distinct from other punctuation\nTopic modeling to group poems by thematic patterns such as death, nature, faith, or memory\nSentiment analysis across lines to measure emotional movement within poems\nTemporal comparison of early and late poems to detect stylistic changes\n\nThese approaches would support a deeper computational interpretation of Dickinson’s writing."
+    "text": "Future Work\nPossible extensions of this analysis include:\n\nSeparate classification of em dashes distinct from other punctuation\nTopic modeling to group poems by thematic patterns such as death, nature, faith, or memory\nSentiment analysis to measure emotional levels in the poems.\nTemporal comparison of early and late poems to detect stylistic changes/evolution."
   },
   {
     "objectID": "proj6.html#closing",
@@ -341,5 +341,12 @@
     "title": "Website Presentation",
     "section": "Closing",
     "text": "Closing\nEmily Dickinson’s poetry shows that expressive force can emerge from small words, restraint, and punctuation. Her style depends not on complex language, but on how fragments, pauses, and concise terms carry emotional and philosophical weight.\nThank you."
+  },
+  {
+    "objectID": "proj6.html#thank-you",
+    "href": "proj6.html#thank-you",
+    "title": "Website Presentation",
+    "section": "Thank You!",
+    "text": "Thank You!"
   }
 ]

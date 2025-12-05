@@ -61,7 +61,7 @@ stop_words <- c(
   "on", "as", "with", "at", "by", "from", "this", "be", "or", "not",
   "but", "are", "was", "were", "so", "if", "up", "out", "then",
   "than", "there", "here", "such","i", "me", "my", "you", "your",
-  "she", "he", "we", "they", "them", "his", "her", "hers", "its",
+  "she", "he", "we", "they", "them", "his", "her", "hers", "him", "its",
   "our", "ours", "their", "theirs", "when", "where", "why", "what",
   "which", "who", "whom", "how", "have", "has", "had", "do", "does",
   "did", "can", "could", "would", "should", "may", "might", "must",
