@@ -130,10 +130,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proj.-1-(data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Proj. 1 (Data Viz)</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Visualization</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-proj.-1-(data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./dveu.html">
  <span class="dropdown-text">Eurovision Song Contest</span></a>
@@ -146,19 +146,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./Dickinson.html"> 
-<span class="menu-text">Proj. 2 (Full Text Analysis)</span></a>
+<span class="menu-text">Full Text Analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./AnimalCrossing.html" aria-current="page"> 
-<span class="menu-text">Proj. 3 (Permutation Test)</span></a>
+<span class="menu-text">Permutation Testing</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Proj. 4 (Ethics of Data Science)</span></a>
+<span class="menu-text">Ethics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project5.html"> 
+<span class="menu-text">SQL</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./p1.html"> 
-<span class="menu-text">Piano Sample</span></a>
+<span class="menu-text">Practice</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -225,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>For this week’s project, I decided to use the Animal Crossing: New Horizons Villager dataset from TinyTuesday, which was originally compiled from VillagerDB. In my analysis, I asked whether or not a villager’s birth half of the year (born between Jan.&nbsp;- June vs.&nbsp;born between July-Dec.) is associated with their personality– more specifically, if they are cranky or not. My hypothesis question would be, are villagers born in the first half of the year more or less likely to be cranky than those who are born later. I wanted to do this experiment because I realized most of my friends are born in the 2nd half of the year, more specifically Sept.-Nov., and I’m one of the only people born in the first half for some odd reason (Jan.). I thought it would be a great way to ragebait them and prove they are “just like the data” if I’m able to prove that people who are born in the latter half of the year are indeed more likely to be cranky than people born in the first half of the year.</p>
+<p>For this week’s project, I decided to use the Animal Crossing: New Horizons Villager dataset from TidyTuesday, which was originally compiled from VillagerDB. In my analysis, I asked whether or not a villager’s birth half of the year (born between Jan.&nbsp;- June vs.&nbsp;born between July-Dec.) is associated with their personality– more specifically, if they are cranky or not. My hypothesis question would be, are villagers born in the first half of the year more or less likely to be cranky than those who are born later. I wanted to do this experiment because I realized most of my friends are born in the 2nd half of the year, more specifically Sept.-Nov., and I’m one of the only people born in the first half for some odd reason (Jan.). I thought it would be a great way to ragebait them and prove they are “just like the data” if I’m able to prove that people who are born in the latter half of the year are indeed more likely to be cranky than people born in the first half of the year.</p>
 </section>
 <section id="simulation-details-what-i-plan-to-do" class="level2">
 <h2 class="anchored" data-anchor-id="simulation-details-what-i-plan-to-do">Simulation Details (What I plan to do)</h2>
@@ -233,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-source" class="level2">
 <h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
-<p>The data for the information about villagers comes from the TidyTuesday Animal Crossing: New Horizon dataset, available through the TidyTuesday Github Repository:<a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-05-05">Github</a>. The information comes from Villager DB, which is a community-maintained database that compiles detailed profiles of all Animal Crossing villagers. I am currently unable to access this datasource or locate the individuals that put the data into a presentable form. Both the website <a href="https://villagerdb.com/user/new">VillagerDB</a> and the <a href="https://github.com/jefflomacy/villagerdb">Github repository</a> are down, and after a quick Reddit search, I learned that they’ve been taken down recently, and I don’t know when it is coming back. For the original data in the game, the data was created by the developers, Nintendo, and the producer who “created” the Animal Crossing games would be Hisashi Nogami. More details about Animal Crossing and characters can be officially sourced to <a href="https://animalcrossing.nintendo.com/">their website</a>.</p>
+<p>The data for the information about villagers comes from the TidyTuesday Animal Crossing: New Horizon dataset, available through the TidyTuesday Github Repository:<a href="https://github.com/rfordatascience/tidytuesday/tree/main/data/2020/2020-05-05">Github</a>. The information comes from Villager DB, which is a community-maintained database that compiles detailed profiles of all Animal Crossing villagers. I am currently unable to access this datasource (VillagerDB, as the site has been taken down) or locate the individuals that put the data into a presentable form. Both the website <a href="https://villagerdb.com/user/new">VillagerDB</a> and the <a href="https://github.com/jefflomacy/villagerdb">Github repository</a> are down, and after a quick Reddit search, I learned that they’ve been taken down recently, and I don’t know when it is coming back. For the original data in the game, the data was created by the developers, Nintendo, and the producer who “created” the Animal Crossing games would be Hisashi Nogami. More details about Animal Crossing and characters can be officially sourced to <a href="https://animalcrossing.nintendo.com/">their website</a>.</p>
 </section>
 <section id="code" class="level2">
 <h2 class="anchored" data-anchor-id="code">Code</h2>
@@ -346,8 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="simulation-details-cont.-what-i-did-results-summary" class="level2">
 <h2 class="anchored" data-anchor-id="simulation-details-cont.-what-i-did-results-summary">Simulation Details (cont.) (What I did, Results Summary)</h2>
-<p>In this simulation, I performed a permutation test to evaluate whether villagers born in the first half of the year (January–June) were more or less likely to be cranky than those born in the latter half (July–December). After categorizing villagers by their birth month and calculating the observed difference in proportions, I found that the proportion of cranky villagers was higher in the July–December group. The observed difference was approximately −0.0749, meaning the first-half group had about roughly 7.49% fewer cranky villagers on average. To test whether this difference could have arisen by chance, I simulated the null hypothesis by randomly shuffling the birth-half labels 1,000 times using my function one_permutation(), applied through map_dbl(). This generated a null distribution of differences assuming no true association between birth month and personality. The observed difference fell in the tail of this distribution, corresponding to an empirical p-value of approximately 0.039, and as 0.039 &lt; 0.05, it suggests the result is statistically significant at the 95% confidence level.</p>
-<p>Overall, the simulation supports the hypothesis that villagers born in the latter half of the year are slightly more likely to be cranky– we should reject Ho, as villagers born from July onwards are more likely to be cranky compared to their earlier born counterparts. Permutation testing can be used to assess non-parametric relationships between categorical variables, and in this case, it appears that people born July and afterwards are indeed more upset than those born from January thru. June ;).</p>
+<p>In this simulation, I used a permutation test to examine whether the observed difference in cranky personalities across birth halves might simply be due to random variation. Although the raw data show that villagers born July–December are about 7.5 percentage points more likely to be cranky than those born January–June, such a difference alone does not tell us whether this pattern is meaningful or could have appeared by chance. Under the null hypothesis, birth half and personality are assumed to be unrelated– meaning any difference in crankiness would be just random noise. By repeatedly shuffling the birth-half labels 1,000 times and recalculating the difference each time, I created a null distribution that reflects what differences we would expect if there were no actual association. The observed difference falls near the tail of this simulated distribution, producing an empirical p-value of 0.039. Because this value is below the 0.05 significance level, the result suggests that the observed difference is unlikely to have arisen by chance alone. While this does not prove that Animal Crossing villagers were designed with personality based on birth dates, it does suggest that the relationship in the dataset is strong enough that it would be rare if no underlying pattern existed. In other words, the data provide statistical evidence that villagers born in the latter half of the year are more likely to be cranky than those born earlier.</p>
 
 
 </section>

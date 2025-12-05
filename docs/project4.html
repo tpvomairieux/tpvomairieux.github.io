@@ -96,10 +96,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proj.-1-(data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Proj. 1 (Data Viz)</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Visualization</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-proj.-1-(data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./dveu.html">
  <span class="dropdown-text">Eurovision Song Contest</span></a>
@@ -112,19 +112,23 @@ ul.task-list li input[type="checkbox"] {
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./Dickinson.html"> 
-<span class="menu-text">Proj. 2 (Full Text Analysis)</span></a>
+<span class="menu-text">Full Text Analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./AnimalCrossing.html"> 
-<span class="menu-text">Proj. 3 (Permutation Test)</span></a>
+<span class="menu-text">Permutation Testing</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./project4.html" aria-current="page"> 
-<span class="menu-text">Proj. 4 (Ethics of Data Science)</span></a>
+<span class="menu-text">Ethics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project5.html"> 
+<span class="menu-text">SQL</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./p1.html"> 
-<span class="menu-text">Piano Sample</span></a>
+<span class="menu-text">Practice</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -194,12 +198,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction-and-scenario" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-scenario">Introduction and Scenario</h2>
 <p>In 2015, data scientists Albert Y. Kim and Adriana Escobedo-Land released a dataset of 59,946 collected San Francisco OkCupid users from a period in the 2010s. Their goal was to provide a real example of a complex datasetfor undergraduat students in introductory statistics and data-science classes to practice modeling, visualization, and text analysis in R (Kim &amp; Escobedo-Land, 2015). The dataset included demographic variables, such as age, gender, height, religion, and lifestyle habits, but also personal responses to 10 open-ended essay questions.</p>
-<p>However, in 2021, Tiffany Xiao and Yifan Ma published a letter to the Journal of Statistics and Data Science Education named “A Call for Review of ‘OkCupid Data for Introductory Statistics and Data Science Courses’ by Albert Y. Kim and Adriana Escobedo-Land.” They argued that the dataset violated key ethical principles surrounding consent and personal identification (Xiao &amp; Ma, 2021). Although the researchers had legal permission from OK Cupid to use the data, users were not explicitly informed that their profiles could be made public for the use of research or classroom use– especially for non-users of the dating app. The tension between public data and privacy in life is an example of one of the largest ethical dilemmas in modern data science: just because something is public and accessible, does it mean we can freely use it without restriction? The issue echoes contemporary controversies like the latest Tik Tok trend, Cheater Buster, which from what I’ve gathered, is an AI site that scrapes names, phone numbers, and faces from dating apps and social media profiles to detect potential cheating/infidelity– which raises similar concerns about digital surveillance and privacy.</p>
+<p>However, in 2021, Tiffany Xiao and Yifan Ma published a letter to the Journal of Statistics and Data Science Education named “A Call for Review of ‘OkCupid Data for Introductory Statistics and Data Science Courses’ by Albert Y. Kim and Adriana Escobedo-Land.” They argued that the dataset violated key ethical principles surrounding consent and personal identification (Xiao &amp; Ma, 2021). Although the researchers had legal permission from OK Cupid to use the data, users were not explicitly informed that their profiles could be made public for the use of research or classroom use– especially for non-users of the dating app. The tension between public data and privacy in life is an example of one of the largest ethical dilemmas in modern data science: just because something is public and accessible, does it mean we can freely use it without restriction? The issue echoes contemporary controversies like the latest Tik Tok trend, Cheater Buster, which from what I’ve gathered, is an AI site that scrapes names, phone numbers, and faces from dating apps and social media profiles to detect potential cheating/infidelity– which raises similar concerns about digital surveillance and privacy. Cheater Buster is basically a service that allows anyone to search dating platforms such as Tinder or Hinge by entering a name or phone number, or uploading an image to the site, to check whether or not a partner has an active profile. The tool scrapes personal data and photos from dating apps to flag “cheaters,” even though the individuals searched have not consented to being monitored in this way, raising similar concerns about digital surveillance and privacy.</p>
 <p>Today, by request of the original authors (Kim and Escobedo-Land), the publication has been corrected to further remove potential identifiers of the OkCupid users whose data was used as examples or scraped, while retaining its educational use. Ages were randomized, the data file was renamed, and the open-ended user responses were shuffled around in the 2021 revised edition (Kim &amp; Escobedo-Land, 2021).</p>
 </section>
 <section id="permission-and-consent-structure-q1" class="level2">
 <h2 class="anchored" data-anchor-id="permission-and-consent-structure-q1">Permission and Consent Structure (Q1)</h2>
-<p>Although Kim and Escobedo-Land received explicit permission from OkCupid leadership to use a scraped dataset– permission that technically satisfied the company-to-researcher requirement (Kim &amp; Escobedo-Land, 2015)– this does not resolve the central ethical issue: individual users never consented to having their personal essays, profile details, or demographic information repurposed for public datasets. Users reasonably expect their profiles to be viewed only within the dating platform, not downloaded, scraped, or redistributed for research or teaching.</p>
+<p>Although Kim and Escobedo-Land received explicit permission from OkCupid leadership to use a scraped dataset– permission that technically satisfied the company-to-researcher requirement (Kim &amp; Escobedo-Land, 2015)– this does not resolve the central ethical issue: individual users never consented to having their personal essays, profile details, or demographic information repurposed for public datasets. Users reasonably expect their profiles to be viewed only within the dating platform, not downloaded, scraped, or redistributed for research or teaching. Basically, obtaining corporate permission satisfied legal requirements, but it bypassed the consent of the people whose intimate data was being studied, shared, and later publicly distributed.</p>
 <p>OkCupid’s Terms of Use reinforce this expectation by prohibiting the use of “any robot [or] crawler” to extract data (Sec. 2c) and by stating that Member Content “belongs to the user” and cannot be copied or redistributed outside the service (Sec. 3b). These clauses indicate that automated scraping directly contradicts what users agreed to (OkCupid, 2025). Thus, even with corporate permission, users’ actual consent was never obtained.</p>
 <p>Xiao and Ma argue that this gap between platform approval and user awareness reflects a broader problem: outdated U.S. data laws make legality an unreliable guide for ethical practice (Xiao &amp; Ma, 2021). They emphasize that variables such as essays, demographics, and temporal or geographic markers remain identifiable and require stronger anonymization and more controlled access. The same concerns apply to modern systems like Cheater Buster, which scrape faces and personal details without user consent despite platform prohibitions. Across both cases, the underlying issue is the absence of meaningful, informed permission for intimate data to be used beyond its intended dating context.</p>
 </section>
@@ -226,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="why-care" class="level2">
 <h2 class="anchored" data-anchor-id="why-care">Why Care?</h2>
 <p>The issues raised in the OkCupid dataset and in modern scraping tools like Cheater Buster matter because they reveal a structural imbalance in who benefits from data extraction and who bears the risks. Researchers and developers gain access to detailed datasets that can be used to train AI, improve products, or for academic purposes. However, the users whose data makes this possible does not benefit, and often doesn’t even have the knowledge that their information, sometimes intimate, has been re-purposed, or shared around. This could cause reputational harm (imagine a fake tinder profile someone made of you and your insecure S.O. found you on Cheater Buster), or the loss of control over personal narratives that they originally shared only for dating purposes.</p>
-<p>Those most harmed tend to be individuals who already experience disproportionate risks online: LGBTQ+ users, people of color, and anyone who shares sensitive information in essays or photographs. These groups may be more easily identifiable due to facial features, mannerisms, or writing style, and the public release of such data heightens the risk of doxxing, harassment, or unwanted exposure. Meanwhile, the ones who scrape or redistribute their data face little to no consequences, in part because outdated U.S. privacy laws do not clearly regulate the repurposing of publicly viewable online information (Xiao &amp; Ma, 2021).</p>
+<p>Like the OkCupid scrape, Cheater Buster reframes dating as a public data source, not a personal space. The service presents itself as a tool for honesty or relationship protection, yet it enables surveillance of unsuspecting individuals using data they never agreed to share outside the app. Those most harmed tend to be individuals who already experience disproportionate risks online: LGBTQ+ users, people of color, and anyone who shares sensitive information in essays or photographs. These groups may be more easily identifiable due to facial features, mannerisms, or writing style, and the public release of such data heightens the risk of doxxing, harassment, or unwanted exposure. Meanwhile, the ones who scrape or redistribute their data face little to no consequences, in part because outdated U.S. privacy laws do not clearly regulate the repurposing of publicly viewable online information (Xiao &amp; Ma, 2021).</p>
 <p>The motivations behind such ethical violations often combine multiple forces. In the OkCupid case, the release was not driven by direct profit, but by academic convenience and the desire for a compelling dataset. In contrast, tools like Cheater Buster operate within an economy of surveillance– users can stalk others under the guise of transparency, accountability, or relationship protection. Whether for research credibility, product differentiation, or monetizing suspicion, these systems leverage personal data in ways that prioritize commercial benefit over individual privacy. Platforms and data collectors possess the technological and legal capacity to extract and repurpose user data, while individuals have limited awareness and even less control. Ensuring meaningful consent, limiting identifiability, and preventing unintended uses are essential steps toward restoring that balance and protecting demographics most affected by these decisions.</p>
 </section>
 <section id="references" class="level2">

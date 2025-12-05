@@ -130,10 +130,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-proj.-1-(data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Proj. 1 (Data Viz)</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-visualization" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Visualization</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-proj.-1-(data-viz">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-visualization">    
         <li>
     <a class="dropdown-item" href="./dveu.html">
  <span class="dropdown-text">Eurovision Song Contest</span></a>
@@ -146,19 +146,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
   <li class="nav-item">
     <a class="nav-link active" href="./Dickinson.html" aria-current="page"> 
-<span class="menu-text">Proj. 2 (Full Text Analysis)</span></a>
+<span class="menu-text">Full Text Analysis</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./AnimalCrossing.html"> 
-<span class="menu-text">Proj. 3 (Permutation Test)</span></a>
+<span class="menu-text">Permutation Testing</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./project4.html"> 
-<span class="menu-text">Proj. 4 (Ethics of Data Science)</span></a>
+<span class="menu-text">Ethics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project5.html"> 
+<span class="menu-text">SQL</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./p1.html"> 
-<span class="menu-text">Piano Sample</span></a>
+<span class="menu-text">Practice</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -278,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plot-1-most-frequent-words" class="level2">
 <h2 class="anchored" data-anchor-id="plot-1-most-frequent-words">Plot 1 – Most Frequent Words</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>most_used_words <span class="ot">&lt;-</span> tokenize <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>most_used_words <span class="ot">&lt;-</span> tokenize_filtered <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(words, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -302,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The above plot is a horizontal bar graph that shows the top 10 most frequent words in Emily Dickinson’s Poems. “The” is the most frequent word, with 1878 uses, followed by “a” and “and” with 775 and 767 uses respectively. Next, “to” is listed at 656 observations. It’s interesting to note that the next most used word, “I”, is a pronoun, and the only pronoun on the top 10. With 615 uses, it shows that most of Dickinson’s poems are written from first-person perspective or express personal thought and feeling. The rest of the top 10 is “of”, “it”, “in”, “that”, and “is”, with 543, 371, 357, 354, and 329 uses. The list reflects an analysis made by the Oxford English Corpus of the 100 most common words in written English, with 8 of the 10 of Dickinson’s most used words (only is and it are not in the top 10) being in the top 10, and only 1 (is) not being in the top 100. Dickinson, despite her unconventional punctuation and themes, still drew from everyday common English. Her uniqueness and innovation is not in her word choice, but rather her arrangement of words to create a complex story– a poem. Her poetry is accessible, as it uses familiar words, yet is profoundly layered as she explores her own emotions, thoughts, and existential reflections.</p>
+<p>The above bar chart displays the top 10 most frequent meaningful words in Emily Dickinson’s poems after removing common stop words and filtering out fragmented tokens produced by contractions. A lot of common structural and grammatical words were filtered out because I wanted to focus on words that carry semantic weight to reveal the core ideas shaping Dickinson’s poetry. The most frequent word is “little,” with 91 uses, which may reflect Dickinson’s fascination with measuring life in small units, from tiny distances, brief encounters, to implied emotions. Her attention to miniature detail often elevates the ordinary into the spiritual or metaphysical. In this way, little becomes an aesthetic strategy as much as a descriptor. Words such as “day,” “life,” and “till” reflect her preoccupation with boundaries and transitions– the movement between life and death, morning and night, presence and absence. The repeated appearance of “will” and “till” suggests an emotional grammar built around uncertainty, anticipation, and incompletion, which is further backed by the word “away,” which shows seperation and space.</p>
 </section>
 <section id="poem-length-vs.-punctuation-count" class="level2">
 <h2 class="anchored" data-anchor-id="poem-length-vs.-punctuation-count">Poem Length vs.&nbsp;Punctuation Count</h2>
@@ -331,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="narrative" class="level2">
 <h2 class="anchored" data-anchor-id="narrative">Narrative</h2>
-<p>In completing this project, I wanted to have a better understanding of Emily Dickinson’s poetic style through a computational lens. While her writing is intensely emotional and personal, known for its introspection and peculiar use of punctuation, it also displays a structural consistency with recurring themes. I wondered if these qualities could be reflected quantitatively through text analysis. By counting word frequency, I was able to explore Dickinson’s vocabulary– interestingly, the most common words in her poetry are simple, everyday English words like “the”, “a”, and “and”. It suggests to me that rather than complex diction, Dickinson’s poetry’s power comes from how she arranges her work to express profound meaning. The presence of “I” supports a common interpretation that her work is self-reflective and personal.</p>
+<p>In completing this project, I wanted to have a better understanding of Emily Dickinson’s poetic style through a computational lens. While her writing is intensely emotional and personal, known for its introspection and peculiar use of punctuation, it also displays a structural consistency with recurring themes. I wondered if these qualities could be reflected quantitatively through text analysis. By counting word frequency, I was able to explore Dickinson’s vocabulary– not merely through the most common grammatical words in English, but through a filtered set of meaningful poetic terms. Rather than being driven by elaborate word choice and diction, Dickinson repeatedly relies on small, expressive words such as little, day, will, and till, which reveal her focus on fine detail, fleeting experiences, and the suspension of action. Her most common words do not name large abstractions, but rather they gesture toward partial states and smallness, inviting interpretation through what is tentative, approximate, or unfinished. This pattern reinforces the sense that Dickinson’s poetic power lies not in elaborate language, but in her choices that make everyday words carry deeper philosophical imagery and weight.</p>
 <p>The regular expressions I designed further support my question. I tried to detect text from poems which reference words related to death, one of Dickinson’s most enduring themes, and extracted any year-like numbers that might situate her work temporally or support the theme of death and ending. By identifying words that followed “my”, I tried to trace personal/possessive language– all these textual patterns tell the story of how Emily Dickinson engaged with mortality, memory, limit, and subjectivity in her work.</p>
 
 

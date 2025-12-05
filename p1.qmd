@@ -3,10 +3,10 @@ title: "Sample of Piano"
 format: html
 ---
 
-Here’s a short clip of me learning a song on the piano!
-Hidekazu Sakamoto's コウを追いかけて.
+Here’s a short clip of me learning a song on the piano! Hidekazu Sakamoto's コウを追いかけて.
 
 <video controls width="100%">
-  <source src="media/pianosample.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+<source src="media/pianosample.mp4" type="video/mp4">
+
+Your browser does not support the video tag. </video>

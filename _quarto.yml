@@ -11,7 +11,7 @@ website:
       - href: index.qmd
         text: Home
 
-      - text: Proj. 1 (Data Viz)
+      - text: Data Visualization
         menu:
           - text: "Eurovision Song Contest"
             href: dveu.html
@@ -20,19 +20,19 @@ website:
             href: dvspot.html
       
       - href: Dickinson.html
-        text: Proj. 2 (Full Text Analysis)
+        text: Full Text Analysis
         
       - href: AnimalCrossing.html
-        text: Proj. 3 (Permutation Test)
+        text: Permutation Testing
         
       - href: project4.html
-        text: Proj. 4 (Ethics of Data Science)
+        text: Ethics
         
       - href: project5.html
-        text: Proj. 5 (SQL)
+        text: SQL 
         
       - href: p1.html
-        text: Piano Sample
+        text: Practice
             
 format:
   html:

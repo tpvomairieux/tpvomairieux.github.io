@@ -62,4 +62,4 @@ The horizontal bar chart shows the total Eurovision points earned by countries s
 
 ## Link and Credits
 
-The data is provided by Eurovision, and Tanya Shapiro and Bob Rudis shared methods to clean and scrape the data. The link to the dataset can be accessed here: [TidyTuesday Eurovision Dataset](https://github.com/rfordatascience/tidytuesday/tree/main/data/2022/2022-05-17). From <https://eurovision.tv/>.
+The data is provided by Eurovision, and Tanya Shapiro and Bob Rudis shared methods to clean and scrape the data. The link to the dataset can be accessed here: [TidyTuesday Eurovision Dataset](https://github.com/rfordatascience/tidytuesday/tree/main/data/2022/2022-05-17). The original dataset can be scraped from the [Eurovision Site](https://eurovision.tv/), and can be found by clicking on the "history" tab of the website and then looking at the data of each country. 
