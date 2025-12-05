@@ -11,7 +11,7 @@ website:
       - href: index.qmd
         text: Home
         
-      - href: proj6.html
+      - href: proj6.html#/title-slide
         text: Final Presentation
 
       - text: Data Visualization
